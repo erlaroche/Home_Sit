@@ -1,4 +1,9 @@
 HouseSitter::Application.routes.draw do
+
+  resources :appointments
+
+  resources :owners
+
   devise_for :sitters
   get "sitters/show"
   get "sitters/index"
