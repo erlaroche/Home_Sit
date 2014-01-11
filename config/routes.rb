@@ -1,5 +1,7 @@
 HouseSitter::Application.routes.draw do
-  get "/owners" =>"owners#index"
+  root "owners#index", as: 'home'
+  root "sessions#new", as: 'sign_in'
+  root "devise/registrations#new", as: 'sign_up'
 
   resources :appointments
 
@@ -13,7 +15,11 @@ HouseSitter::Application.routes.draw do
   get "sitters/edit"
   get "sitters/update"
   get "sitters/new"
+
   
+  get "sitters/sign_in" => 'devise/sessions#new'
+  get "sitters/sign_up" => 'devise/registrations#new'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
