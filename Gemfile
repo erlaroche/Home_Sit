@@ -14,6 +14,9 @@ gem 'devise'
 
 gem 'hirb'
 
+#Add carrierwave for local file uploads
+gem 'carrierwave'
+
 #add foundation to the site
 
 gem 'foundation-rails'
