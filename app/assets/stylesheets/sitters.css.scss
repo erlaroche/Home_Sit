@@ -1,3 +1,34 @@
-// Place all the styles related to the Sitters controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.full-width-row {
+  
+
+  width: 100%;
+  background: url( asset-path('assets/blurred_background.jpg', image) ) no-repeat;
+  min-height: 680px; // to make it full-screen top to bottom on most screens
+  background-size: cover; //this resizes the background for any screen size
+  padding: 6em 0em; //give it some breathing room from the top
+  h2 {
+    color: green;
+  }
+
+}
+
+
+#sitter_email, #sitter_password {
+
+  background-color: transparent;
+  color: white;
+}
+
+.new_sitter label{
+  color: white;
+
+}
+.button {
+  color: white;
+  background-color: green;
+}
+
+div.small-12.medium-4.large-4.columns {
+  color: grey;
+  background-color: #333333;
+}
