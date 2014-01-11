@@ -10,6 +10,10 @@ gem 'pg'
 
 gem 'devise'
 
+#add hirb
+
+gem 'hirb'
+
 #add foundation to the site
 
 gem 'foundation-rails'
