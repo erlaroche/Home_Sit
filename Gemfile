@@ -20,6 +20,12 @@ gem 'carrierwave'
 #Add Rmagick to create different image sizes
 gem 'rmagick'
 
+#Add figaro for storing environmental variables
+gem 'figaro'
+
+#Add fog to push info to amazon S3
+gem 'fog'
+
 #add foundation to the site
 
 gem 'foundation-rails'
