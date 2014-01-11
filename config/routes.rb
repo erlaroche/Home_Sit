@@ -1,5 +1,5 @@
 HouseSitter::Application.routes.draw do
-  root "owners#index", as: 'home'
+  get "/owners" =>"owners#index"
 
   resources :appointments
 
