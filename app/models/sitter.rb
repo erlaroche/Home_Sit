@@ -5,5 +5,7 @@ class Sitter < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :owners, :through => :appointments
-  has_many :appointments, :through => :owners 
+  has_many :appointments, :through => :owners
+
+  mount_uploader :attachment, AvatarUploader 
 end
