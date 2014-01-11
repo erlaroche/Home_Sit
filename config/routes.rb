@@ -1,4 +1,5 @@
 HouseSitter::Application.routes.draw do
+  root "owners#index", as: 'home'
 
   resources :appointments
 
@@ -12,6 +13,8 @@ HouseSitter::Application.routes.draw do
   get "sitters/edit"
   get "sitters/update"
   get "sitters/new"
+  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
