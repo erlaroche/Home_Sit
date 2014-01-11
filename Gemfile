@@ -23,6 +23,9 @@ gem 'rmagick'
 #Add figaro for storing environmental variables
 gem 'figaro'
 
+#Add to help figaro
+gem 'unf'
+
 #Add fog to push info to amazon S3
 gem 'fog'
 
