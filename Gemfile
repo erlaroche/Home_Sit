@@ -17,6 +17,9 @@ gem 'hirb'
 #Add carrierwave for local file uploads
 gem 'carrierwave'
 
+#Add Rmagick to create different image sizes
+gem 'rmagick'
+
 #add foundation to the site
 
 gem 'foundation-rails'
