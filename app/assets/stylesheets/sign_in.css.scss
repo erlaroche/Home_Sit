@@ -33,6 +33,24 @@ cursor:pointer;
 }
 
 
+#findsitterbutton {
+display:block;
+width:200px;
+height:200px;
+border-radius:100px;
+font-size:70px;
+color:green;
+line-height:100px;
+text-align:center;
+background:blue;
+cursor:pointer;
+}
+
+#findsitterbutton p {
+  
+  font-size: 20px;
+  cursor:pointer;
+}
 
 #sitter_email, #sitter_password {
 
