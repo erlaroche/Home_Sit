@@ -1,31 +1,22 @@
-.full-width-row {
-  width: 100%;
-  background: url( asset-path('assets/blurred_background.jpg', image) ) no-repeat;
-  min-height: 680px; // to make it full-screen top to bottom on most screens
-  background-size: cover; //this resizes the background for any screen size
-  padding: 6em 0em; //give it some breathing room from the top
-  h2 {
-    color: green;
-  }
 
-}
 
 #sitterbutton {
-  display:block;
-  width:200px;
-  height:200px;
-  border-radius:100px;
-  font-size:70px;
-  color:green;
-  line-height:100px;
-  text-align:center;
-  background:blue;
-  cursor:pointer;
+  display: block;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  font-size: 70px;
+  line-height: 100px;
+  text-align: center;
+  cursor: pointer;
+  background: #00CCFF;
+
 }
 
 #sitterbutton p {
   font-size: 20px;
   cursor:pointer;
+  color: black;
 }
 
 
@@ -33,34 +24,24 @@
   display:block;
   width:200px;
   height:200px;
-  border-radius:100px;
-  font-size:70px;
-  color:green;
-  line-height:100px;
-  text-align:center;
-  background:blue;
-  cursor:pointer;
+  border-radius: 100px;
+  font-size: 70px;
+  line-height: 100px;
+  text-align: center;
+  background: #00CCFF;
+  cursor: pointer;
 }
+
+
 
 #findsitterbutton p {
   font-size: 20px;
   cursor:pointer;
+  color: black;
 }
 
-#sitter_email, #sitter_password {
-  background-color: transparent;
-  color: white;
+
+.sitbutt {
+  text-align: center;
 }
 
-.new_sitter label{
-  color: white;
-
-}
-.button {
-  color: white;
-  background-color: green;
-}
-
-.sign_up_link {
-  color: white;
-}

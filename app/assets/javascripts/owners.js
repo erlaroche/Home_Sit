@@ -5,3 +5,7 @@
 $('#sitterbutton').on('click', function () {
   window.location = '/sitters/sign_up'
 });
+
+$('#findsitterbutton').on('click', function () {
+  window.location = '/appointments/new'
+});
