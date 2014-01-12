@@ -1,7 +1,26 @@
-<% @sitters.each do |sitter| %>
-  <%= sitter.name %>
-  <% end %>
 
+  <table>
+  <thead>
+    <tr>
+      <th width="200">Name</th>
+      <th width="150">Email</th>
+      <th width="150">Phone</th>
+      <th width="150">Picture</th>
+      <th width="150">Zipcode</th>
+    </tr>
+  </thead>
+  <% @sitters.each do |sitter|%>
+  <tbody>
+    <tr>
+      <td><%= sitter.name%></td>
+      <td><%= sitter.email%></td>
+      <td><%= sitter.phone_number%></td>
+      <td><Picture</td>
+      <td><%= sitter.zip_code%></td>
+    </tr>
+   <%end%> 
+  </tbody>
+</table>
 
 
 
