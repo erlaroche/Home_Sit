@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :time %><br>
-    <%= f.grouped_collection_select :time, @times, :each,  %>
+    <%= select_tag :time, options_for_select(@times) %>
   </div>
   <div class="field">
     <%= f.label :zip_code %><br>
