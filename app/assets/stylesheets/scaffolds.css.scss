@@ -10,6 +10,20 @@ p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  color: white;
+  h1 {
+    color: green;
+      }
+  h3 {
+    color: grey;
+  }
+  p {
+    color: white;
+    font-size: 14pxs;
+  }
+  h5 {
+    color: green;
+  }
 }
 
 pre {
@@ -62,7 +76,7 @@ div {
     background-color: #c00;
     color: #fff;
   }
-  ul li {
+  ul, li {
     font-size: 12px;
     list-style: square;
   }
