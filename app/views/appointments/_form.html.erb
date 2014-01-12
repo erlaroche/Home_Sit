@@ -16,6 +16,10 @@
     <%= f.date_field :date, :autofocus => true %>
   </div>
   <div class="field">
+    <%= f.label :time %><br>
+    <%= f.select :time, options_for_select(@times) %>
+  </div>
+  <div class="field">
     <%= f.label :zip_code %><br>
     <%= f.text_field :zip_code, :maxlength => 5 %>
   </div>

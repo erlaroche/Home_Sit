@@ -9,7 +9,7 @@ HouseSitter::Application.routes.draw do
 
   devise_for :sitters
   # get "sitters/show"
-  # get "sitters/index"
+  get "sitters/index", to: 'sitters#index', as: 'all_sitters'
   # get "sitters/destroy"
   # get "sitters/create"
   # get "sitters/edit"
