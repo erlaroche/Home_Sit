@@ -9,3 +9,7 @@ $('#sitterbutton').on('click', function () {
 $('#findsitterbutton').on('click', function () {
   window.location = '/appointments/new'
 });
+
+$('#findsitterbuttonagain').on('click', function () {
+  window.location = '/sitters/index'
+});
