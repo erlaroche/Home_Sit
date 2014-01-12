@@ -1,14 +1,10 @@
 class AppointmentNotify < ActionMailer::Base
   default from: "stewartimel@gmail.com"
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.appointment_notify.new_appointment.subject
-  #
   def new_appointment
+    # @user = user
     @greeting = "Hi"
 
-    mail to: "to@example.org"
+    mail( to: "@user.email", subject: 'WAAZZZUUPPP from HomeSit')
   end
 end
