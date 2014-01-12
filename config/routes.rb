@@ -1,25 +1,29 @@
 HouseSitter::Application.routes.draw do
   root "owners#index", as: 'home'
-  root "sessions#new", as: 'sign_in'
-  root "devise/registrations#new", as: 'sign_up'
+  # root "sessions#new", as: 'sign_in'
+  
 
   resources :appointments
 
   resources :owners
 
   devise_for :sitters
-  get "sitters/show"
-  get "sitters/index"
-  get "sitters/destroy"
-  get "sitters/create"
-  get "sitters/edit"
-  get "sitters/update"
-  get "sitters/new"
+  # get "sitters/show"
+  # get "sitters/index"
+  # get "sitters/destroy"
+  # get "sitters/create"
+  # get "sitters/edit"
+  # get "sitters/update"
+  # get "sitters/new"
 
   
-  get "sitters/sign_in" => 'devise/sessions#new'
-  get "sitters/sign_up" => 'devise/registrations#new'
+  # get "sitters/sign_in" => 'devise/sessions#new'
+  # get "sitters/sign_up" => 'devise/registrations#new'
+  # get 'sessions/create' => 'sessions#create', as: :log_in
+  # get 'sessions/destroy' => 'sessions#destroy', as: :log_out
 
+  # You can have the root of your site routed with "root"
+  root 'static_files#landing'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
