@@ -1,36 +1,17 @@
 
-
-.welcome_page{
-  text-align: center;
-
-  h1 {
-    color: green;
-      }
-  h3 {
-    color: grey;
-  }
-  p {
-    color: white;
-    font-size: 14pxs;
-  }
-  h5 {
-    color: green;
-  }
-}
-
 .button {
   color: white;
-  background-color: green;
+  background-color: blue;
 }
 
 #sitter_email, #sitter_password, #sitter_name, #sitter_phone_number, #sitter_zip_code, #sitter_password_confirmation {
 
   background-color: transparent;
-  color: white;
+  color: black;
 }
 
 .new_sitter label{
-  color: white;
+  color: black;
 
 }
 .button {
