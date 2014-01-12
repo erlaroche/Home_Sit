@@ -16,6 +16,10 @@
     <%= f.date_field :date, :autofocus => true %>
   </div>
   <div class="field">
+    <%= f.label :time %><br>
+    <%= f.grouped_collection_select :time, @times, :each,  %>
+  </div>
+  <div class="field">
     <%= f.label :zip_code %><br>
     <%= f.text_field :zip_code, :maxlength => 5 %>
   </div>
