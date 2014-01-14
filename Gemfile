@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+# Google calendar queries
+gem 'unirest'
+
+# Google log in
 gem "omniauth-google-oauth2"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

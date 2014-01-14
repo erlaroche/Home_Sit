@@ -34,4 +34,8 @@ class Sitter < ActiveRecord::Base
   def password_required?
     super && provider.blank?
   end
+
+  def google_calendar_query
+
+  end
 end
