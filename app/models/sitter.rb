@@ -15,7 +15,6 @@ class Sitter < ActiveRecord::Base
       sitter.uid = auth.uid
       sitter.name = auth.info.name
       sitter.email = auth.info.email
-      sitter.password = auth.password
 
     end
   end
@@ -33,5 +32,9 @@ class Sitter < ActiveRecord::Base
 
   def password_required?
     super && provider.blank?
+  end
+
+  def google_calendar_query
+    response = Unirest.get("https://www.googleapis.com/calendar/v3/calendars/stewartimel@gmail.com/events")
   end
 end
