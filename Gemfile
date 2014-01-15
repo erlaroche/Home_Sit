@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'google-api-client'
 # Pry to test
 gem 'pry'
 
