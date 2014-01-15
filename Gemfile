@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Pry to test
+gem 'pry'
+
 # Google calendar queries
 gem 'unirest'
 
