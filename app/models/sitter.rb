@@ -9,7 +9,7 @@ class Sitter < ActiveRecord::Base
 
   mount_uploader :attachment, AvatarUploader 
 
-  def self.from_omniauth(auth)
+  def self.from_omniauth(auth, code)
     where(auth.slice(:provider, :uid)).first_or_create do |sitter|
       sitter.provider = auth.provider
       sitter.uid = auth.uid
