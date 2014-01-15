@@ -23,7 +23,6 @@ gem 'devise'
 
 gem 'hirb'
 
-
 gem 'better_errors'
 gem 'binding_of_caller'
 #Add carrierwave for local file uploads
