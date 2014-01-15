@@ -34,8 +34,5 @@ class Sitter < ActiveRecord::Base
     super && provider.blank?
   end
 
-  def google_calendar_query
-    response = Unirest.get("https://www.googleapis.com/calendar/v3/users/me/settings")
-    binding.pry
-  end
+
 end

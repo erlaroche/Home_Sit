@@ -1,6 +1,8 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def all
+    code = params[:code]
+    binding.pry
     sitter = Sitter.from_omniauth(request.env["omniauth.auth"])
     if sitter.persisted?
       sign_in_and_redirect sitter, notice: "Signed in!"

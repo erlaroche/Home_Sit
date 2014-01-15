@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 
+# helps google api client
+gem 'launchy'
+
 gem 'google-api-client'
+
 # Pry to test
 gem 'pry'
 
