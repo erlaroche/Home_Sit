@@ -18,7 +18,7 @@ $('#findsitterbuttonagain').on('click', function () {
 $('.bgParallax').each(function(){
     var $obj = $(this);
  
-    $(window).scroll(function() {
+    $.stellar(function() {
         var yPos = -($(window).scrollTop() / $obj.data('speed'));
  
         var bgpos = '50% '+ yPos + 'px';
@@ -27,3 +27,5 @@ $('.bgParallax').each(function(){
   
     });
 });
+
+
