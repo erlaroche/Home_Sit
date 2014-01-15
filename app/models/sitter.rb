@@ -15,7 +15,7 @@ class Sitter < ActiveRecord::Base
       sitter.uid = auth.uid
       sitter.name = auth.info.name
       sitter.email = auth.info.email
-
+      sitter.auth_code = code
     end
   end
 
