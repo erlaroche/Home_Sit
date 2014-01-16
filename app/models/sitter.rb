@@ -17,6 +17,7 @@ class Sitter < ActiveRecord::Base
       sitter.name = auth.info.name
       sitter.email = auth.info.email
       sitter.auth_code = code
+      sitter.refresh_token = auth.credentials.refresh_token
     end
   end
 
