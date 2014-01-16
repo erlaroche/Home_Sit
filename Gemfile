@@ -1,5 +1,11 @@
 source 'https://rubygems.org'
 
+gem 'json'
+# helps google api client
+gem 'launchy'
+
+gem 'google-api-client'
+
 # Pry to test
 gem 'pry'
 
