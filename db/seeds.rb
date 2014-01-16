@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+<<<<<<< HEAD
 Sitter.create(  id: 1,
                 name: "Rob Youblind",
                 email: "Youblind@gmail.com",
