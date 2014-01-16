@@ -227,6 +227,7 @@ DEPENDENCIES
   hirb
   jbuilder (~> 1.2)
   jquery-rails
+  json
   launchy
   omniauth-google-oauth2
   pg

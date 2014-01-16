@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'json'
 # helps google api client
 gem 'launchy'
 
