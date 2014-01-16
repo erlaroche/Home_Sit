@@ -1,7 +1,15 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def all
-    sitter = Sitter.from_omniauth(request.env["omniauth.auth"])
+    # Get Authorization code from Google
+    code = request.original_url[params[:code]]
+    # binding.pry
+    # Get authorization hash from Google
+    auth_hash = request.env["omniauth.auth"]
+    
+    # Call from_omniauth method from Sitter model
+    sitter = Sitter.from_omniauth(auth_hash, code)
+    
     if sitter.persisted?
       sign_in_and_redirect sitter, notice: "Signed in!"
     else
