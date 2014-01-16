@@ -1,4 +1,5 @@
 class Sitter < ActiveRecord::Base
+  require 'google/api_client'
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :lockable and 
   devise :database_authenticatable, :registerable, :omniauthable,
@@ -34,5 +35,15 @@ class Sitter < ActiveRecord::Base
     super && provider.blank?
   end
 
+  def calendar_query
+    client = Service.new
+    client.authorization.client_id = ENV["GOOGLE_CLIENT_ID"]
+    client.authorization.client_secret = ENV["GOOGLE_CLIENT_SECRET"]
+    # Already declared, possible error
+    client.authorization.scope = 'https://www.googleapis.com/auth/calendar'
+    client.authorization.redirect_uri = 'http://localhost:3000/sitters/auth/google_oauth2/callback'
+    client.authorization.code = self.auth_code
+    client.authorization.fetch_access_token!
+  end
 
 end
