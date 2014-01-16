@@ -48,3 +48,4 @@ Sitter.create(  id: 7,
                 phone_number: "5126666666",
                 password: "test6234",
                 zip_code:"78754")
+

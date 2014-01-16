@@ -13,15 +13,7 @@
  
  *= require_tree .
  */
-//  .full-width-row  {
-//    width: 100%;
-//    /*background-color: #A9E2F3;*/
-//    background: image-url('blurred-background.jpg') no-repeat;
-//    min-height: 680px; // to make it full-screen top to bottom on most screens
-//    background-size: cover; //this resizes the background for any screen size
-//    padding: 6em 0em; //give it some breathing room from the top
 
-// }
 
 #appointment_date, #appointment_zip_code {
   background-color: transparent;
@@ -49,40 +41,28 @@ h4 {
   color: white;
 }
 
+
+//format for paralax
 * {margin:0; padding: 0;}
 html, body {height:100%;}
   
 /** format elements which have backgrounds parallax **/
 .bgParallax {
-    font-family: 'Elsie', cursive;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 1920px;
-    position: relative;
-    min-height: 100%;
-    text-shadow:0 0 10px rgba(0,0,0,0.7);
-  
-    background-position: 50% 0;
-    background-repeat: repeat;
-    background-attachment: fixed;
+  font-family: 'Elsie', cursive;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1920px;
+  position: relative;
+  min-height: 100%;
+  text-shadow:0 0 10px rgba(0,0,0,0.7);
+  background-position: 100% 0;
+   
 }
   
 /* Define backgrounds of divs */
-#aboutus {background-image: url(blurred-background.jpg);}
-#mission {
-    background-color: #53a7d2;
-    -webkit-box-shadow:-20px 0 20px 5px rgba(0,0,0,0.7);
-    -moz-box-shadow:-20px 0 20px 5px rgba(0,0,0,0.7);
-    -ms-box-shadow:-20px 0 20px 5px rgba(0,0,0,0.7);
-    -o-box-shadow:-20px 0 20px 5px rgba(0,0,0,0.7);
-    box-shadow:-20px 0 20px 5px rgba(0,0,0,0.7);
-}
-#Next {
-  background-color: #ff6e56;
-}
   
 /** Format article **/
-.bgParallax article {
+.bgParallax {
   width: 70%;
   text-align: center;
   margin:0 auto;
@@ -90,7 +70,28 @@ html, body {height:100%;}
 }
   
 /** format text **/
-article h1 {font-size:40px;}
-article p {line-height: 30px; font-size:20px; margin-top:15px;}
-article p a {color:#FFF; text-decoration:none; font-size:30px;}
+article h1 {
+font-size:40px;
+   color: black;
+ }
+
+article h3 {
+  font-size: 30px;
+  color: black;
+}
+
+article p {
+  line-height: 30px; 
+  font-size: 20px; 
+  margin-top: 15px;
+  color: black; 
+  text-decoration: none; 
+}
+
+#picture {
+  opacity: 0.6;
+}
+
+
+
 

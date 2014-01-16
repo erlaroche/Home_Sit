@@ -27,3 +27,7 @@ $('.bgParallax').each(function(){
   
     });
 });
+
+// stellar();
+
+
