@@ -48,14 +48,14 @@ html, body {height:100%;}
   
 /** format elements which have backgrounds parallax **/
 .bgParallax {
-    font-family: 'Elsie', cursive;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 1920px;
-    position: relative;
-    min-height: 100%;
-    text-shadow:0 0 10px rgba(0,0,0,0.7);
-    background-position: 100% 0;
+  font-family: 'Elsie', cursive;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1920px;
+  position: relative;
+  min-height: 100%;
+  text-shadow:0 0 10px rgba(0,0,0,0.7);
+  background-position: 100% 0;
    
 }
   
@@ -88,8 +88,10 @@ article p {
   text-decoration: none; 
 }
 
-.cable{
-
+#picture {
+  opacity: 0.6;
 }
+
+
 
 
