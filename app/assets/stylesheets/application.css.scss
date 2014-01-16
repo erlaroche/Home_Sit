@@ -49,6 +49,8 @@ h4 {
   color: white;
 }
 
+
+//format for paralax
 * {margin:0; padding: 0;}
 html, body {height:100%;}
   
@@ -68,18 +70,8 @@ html, body {height:100%;}
 }
   
 /* Define backgrounds of divs */
-#aboutus {background-image: url(blurred-background.jpg);}
-#mission {
-    background-color: #53a7d2;
-    -webkit-box-shadow:-20px 0 20px 5px rgba(0,0,0,0.7);
-    -moz-box-shadow:-20px 0 20px 5px rgba(0,0,0,0.7);
-    -ms-box-shadow:-20px 0 20px 5px rgba(0,0,0,0.7);
-    -o-box-shadow:-20px 0 20px 5px rgba(0,0,0,0.7);
-    box-shadow:-20px 0 20px 5px rgba(0,0,0,0.7);
-}
-#Next {
-  background-color: #ff6e56;
-}
+
+
   
 /** Format article **/
 .bgParallax article {
