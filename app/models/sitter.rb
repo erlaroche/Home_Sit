@@ -18,7 +18,7 @@ class Sitter < ActiveRecord::Base
       sitter.name = auth.info.name
       sitter.email = auth.info.email
       sitter.auth_code = code
-      # sitter.picture  = auth.extra.raw_info.picture
+      sitter.picture  = auth.extra.raw_info.picture
       sitter.refresh_token = auth.credentials.refresh_token
     end
   end
@@ -63,12 +63,12 @@ class Sitter < ActiveRecord::Base
   end
 
   def self.any_available(time_start, time_end)
-    @available = []
+    @available = {}
     @sitters = Sitter.all
     @sitters.each do |sitter|
       status_array = sitter.calendar_query(time_start, time_end)
       if status_array.empty?
-        @available << sitter.name
+        @available[sitter.name] = sitter.picture
       end
     end
     return @available
