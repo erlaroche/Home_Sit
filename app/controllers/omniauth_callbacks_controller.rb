@@ -3,7 +3,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def all
     # Get Authorization code from Google
     code = request.original_url[params[:code]]
-    # binding.pry
     # Get authorization hash from Google
     auth_hash = request.env["omniauth.auth"]
     

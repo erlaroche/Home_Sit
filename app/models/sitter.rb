@@ -37,7 +37,7 @@ class Sitter < ActiveRecord::Base
     super && provider.blank?
   end
 
-  def calendar_query
+  def calendar_query(time_start, time_end)
     client = Service.new
     calendar = client.discovered_api('calendar', 'v3')
     client.authorization.client_id = ENV["GOOGLE_CLIENT_ID"]
@@ -47,14 +47,19 @@ class Sitter < ActiveRecord::Base
     client.authorization.refresh_token = self.refresh_token
     client.authorization.fetch_access_token!
     
-    result = client.execute(
-        :parameters => {:timeMin => "2014-01-16T04:00:00-06:00", :timeMin => "2014-01-16T05:00:00-06:00", :id => "stewartimel@gmail.com"}, 
-        :api_method => calendar.freebusy.query
-      )
+    result = client.execute({
+      api_method: calendar.freebusy.query,
+      body: JSON.dump({
+          timeMin: "#{time_start}",
+          timeMax: "#{time_end}",
+          items: [{id: "#{self.email}"}]
+      }),
+      headers: {'Content-Type' => 'application/json'}
+      }) 
     # Stop with pry to check results in comman line
     # Giving us a 400 error
     # Run rails server, then in rails console, then typel "stew = Sitter.last", then type "stew.calendar_query", then type "result"
-    binding.pry
+    return result.data.calendars["stewartimel@gmail.com"].to_hash.keys.first
   end
 
 end
