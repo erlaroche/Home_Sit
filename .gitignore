@@ -18,5 +18,5 @@
 # Ignore user file uploads
 public/uploads
 
-config/application.yml
+/config/application.yml
 
