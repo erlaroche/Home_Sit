@@ -18,3 +18,5 @@
 # Ignore user file uploads
 public/uploads
 
+# Ignore environmental variables
+/config/application.yml

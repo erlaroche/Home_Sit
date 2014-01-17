@@ -66,9 +66,7 @@ html, body {height:100%;}
   max-width: 1920px;
   position: relative;
   min-height: 100%;
-  text-shadow:0 0 10px rgba(0,0,0,0.7);
-  background-position: 100% 0;
-   
+  background-position: 100% 0;   
 }
   
 /* Define backgrounds of divs */
@@ -83,20 +81,23 @@ html, body {height:100%;}
   
 /** format text **/
 article h1 {
-font-size:40px;
-   color: black;
+  font-size:40px;
+   color: white;
+   font-weight: bold;
+
  }
 
 article h3 {
   font-size: 30px;
-  color: black;
+  color: white;
+  font-weight: bold;
 }
 
 article p {
   line-height: 30px; 
   font-size: 20px; 
   margin-top: 15px;
-  color: black; 
+  color: white; 
   text-decoration: none; 
 }
 
