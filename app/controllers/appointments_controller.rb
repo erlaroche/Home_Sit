@@ -25,6 +25,9 @@ class AppointmentsController < ApplicationController
   # POST /appointments.json
   def create
     @appointment = Appointment.new(appointment_params)
+    @appointment.time_start = @appointment.time_start_convert
+    @appointment.time_end = @appointment.time_end_convert
+    session[:available] = Sitter.any_available(@appointment.time_start, @appointment.time_end)
 
     respond_to do |format|
       if @appointment.save
@@ -69,7 +72,7 @@ class AppointmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def appointment_params
-      params.require(:appointment).permit(:date, :zip_code, :time)
+      params.require(:appointment).permit(:date, :zip_code, :time_start, :time_end)
     end
 
     def get_times
