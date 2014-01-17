@@ -56,10 +56,20 @@ class Sitter < ActiveRecord::Base
       }),
       headers: {'Content-Type' => 'application/json'}
       }) 
-    # Stop with pry to check results in comman line
-    # Giving us a 400 error
-    # Run rails server, then in rails console, then typel "stew = Sitter.last", then type "stew.calendar_query", then type "result"
+    # Might always return busy!
     return result.data.calendars["stewartimel@gmail.com"].to_hash.keys.first
+  end
+
+  def self.any_available(time_start, time_end)
+    @available = []
+    @sitters = Sitter.all
+    @sitters.each do |sitter|
+      status = sitter.calendar_query(time_start, time_end)
+      if status != "busy"
+        @available << sitter.name
+      end
+    end
+    return @available
   end
 
 end
