@@ -27,8 +27,8 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params)
     @appointment.time_start = @appointment.time_start_convert
     @appointment.time_end = @appointment.time_end_convert
-    session[:available] = Sitter.any_available(@appointment.time_start, @appointment.time_end)
 
+    session[:available] = Sitter.any_available(@appointment.time_start, @appointment.time_end)
     respond_to do |format|
       if @appointment.save
         format.html { redirect_to @appointment, notice: 'Appointment was successfully created.' }
