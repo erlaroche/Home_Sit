@@ -47,6 +47,7 @@ class Sitter < ActiveRecord::Base
     client.authorization.refresh_token = self.refresh_token
     client.authorization.fetch_access_token!
     
+    # id parameter capable of quering more than one calendar.  Possible refactor
     result = client.execute({
       api_method: calendar.freebusy.query,
       body: JSON.dump({
@@ -57,15 +58,15 @@ class Sitter < ActiveRecord::Base
       headers: {'Content-Type' => 'application/json'}
       }) 
     # Might always return busy!
-    return result.data.calendars["stewartimel@gmail.com"].to_hash.keys.first
+    return result.data.calendars["stewartimel@gmail.com"].to_hash["busy"]
   end
 
   def self.any_available(time_start, time_end)
     @available = []
     @sitters = Sitter.all
     @sitters.each do |sitter|
-      status = sitter.calendar_query(time_start, time_end)
-      if status != "busy"
+      status_array = sitter.calendar_query(time_start, time_end)
+      if status_array.empty?
         @available << sitter.name
       end
     end
