@@ -18,6 +18,7 @@ class Sitter < ActiveRecord::Base
       sitter.name = auth.info.name
       sitter.email = auth.info.email
       sitter.auth_code = code
+      # sitter.picture  = auth.extra.raw_info.picture
       sitter.refresh_token = auth.credentials.refresh_token
     end
   end
@@ -58,7 +59,7 @@ class Sitter < ActiveRecord::Base
       headers: {'Content-Type' => 'application/json'}
       }) 
     # Might always return busy!
-    return result.data.calendars["stewartimel@gmail.com"].to_hash["busy"]
+    return result.data.calendars["#{self.email}"].to_hash["busy"]
   end
 
   def self.any_available(time_start, time_end)

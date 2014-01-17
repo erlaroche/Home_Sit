@@ -5,7 +5,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     code = request.original_url[params[:code]]
     # Get authorization hash from Google
     auth_hash = request.env["omniauth.auth"]
-    
     # Call from_omniauth method from Sitter model
     sitter = Sitter.from_omniauth(auth_hash, code)
     
