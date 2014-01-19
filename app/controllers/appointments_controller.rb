@@ -29,8 +29,14 @@ class AppointmentsController < ApplicationController
     @appointment.time_end = @appointment.time_end_convert
 
     session[:available] = Sitter.any_available(@appointment.time_start, @appointment.time_end)
+
+    @emails = []
+    (session[:available]).each do |key, value|
+    @emails << session[:available][key]["email"]
+    end
     respond_to do |format|
       if @appointment.save
+        AppointmentNotify.new_appointment(@emails).deliver
         format.html { redirect_to @appointment, notice: 'Appointment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @appointment }
       else
@@ -63,6 +69,9 @@ class AppointmentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def confirm
+  end  
 
   private
     # Use callbacks to share common setup or constraints between actions.

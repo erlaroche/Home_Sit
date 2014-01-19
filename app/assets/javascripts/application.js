@@ -23,3 +23,7 @@
 
 $(function(){ $(document).foundation(); });
 
+$('#confirmbutton').on('click', function() {
+  ;
+
+});

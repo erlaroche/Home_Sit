@@ -68,7 +68,9 @@ class Sitter < ActiveRecord::Base
     @sitters.each do |sitter|
       status_array = sitter.calendar_query(time_start, time_end)
       if status_array.empty?
-        @available[sitter.name] = sitter.picture
+        @available[sitter.name] = {}
+        @available[sitter.name]["picture"] = sitter.picture
+        @available[sitter.name]["email"] = sitter.email
       end
     end
     return @available
