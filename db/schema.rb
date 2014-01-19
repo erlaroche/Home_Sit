@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 20140119030358) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "attachment"
     t.string   "name"
     t.string   "phone_number"
     t.string   "zip_code"

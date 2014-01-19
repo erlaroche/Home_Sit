@@ -9,7 +9,7 @@ class Sitter < ActiveRecord::Base
   has_many :owners, :through => :appointments
   has_many :appointments, :through => :owners
 
-  mount_uploader :attachment, AvatarUploader 
+  # mount_uploader :picture, AvatarUploader 
 
   def self.from_omniauth(auth, code)
     where(auth.slice(:provider, :uid)).first_or_create do |sitter|
@@ -47,7 +47,7 @@ class Sitter < ActiveRecord::Base
     client.authorization.redirect_uri = 'http://localhost:3000/sitters/auth/google_oauth2/callback'
     client.authorization.refresh_token = self.refresh_token
     client.authorization.fetch_access_token!
-    
+    binding.pry
     # id parameter capable of quering more than one calendar.  Possible refactor
     result = client.execute({
       api_method: calendar.freebusy.query,
