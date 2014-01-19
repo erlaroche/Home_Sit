@@ -27,7 +27,6 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params)
     @appointment.time_start = @appointment.time_start_convert
     @appointment.time_end = @appointment.time_end_convert
-    binding.pry
 
     session[:available] = Sitter.any_available(@appointment.time_start, @appointment.time_end)
     respond_to do |format|
