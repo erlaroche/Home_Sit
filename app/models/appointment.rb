@@ -4,13 +4,23 @@ class Appointment < ActiveRecord::Base
   belongs_to :sitter
 
   def time_start_convert
-    new_time = "#{self.date}" + "T" + "#{self.time_start}" + ":00" + "Z"
-    return new_time
+    if self.time_start.slice(-2, 2) == "PM"
+      new_time = self.time_start.partition(":")[0].to_i + 12 
+      time = "#{self.date}" + "T" + "#{new_time}" + ":00:00" + "Z"
+    else
+      new_time = self.time_start.partition(":")[0]
+      time = "#{self.date}" + "T" + "#{new_time}" + ":00:00" + "Z"
+    end
   end
 
   def time_end_convert
-    new_time = "#{self.date}" + "T" + "#{self.time_end}" + ":00" + "Z"
-    return new_time
+    if self.time_end.slice(-2, 2) == "PM"
+      new_time = self.time_end.partition(":")[0].to_i + 12 
+      time = "#{self.date}" + "T" + "#{new_time}" + ":00:00" + "Z"
+    else
+      new_time = self.time_end.partition(":")[0]
+      time = "#{self.date}" + "T" + "#{new_time}" + ":00:00" + "Z"
+    end
   end
 
 end
