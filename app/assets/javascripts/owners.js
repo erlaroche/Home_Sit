@@ -11,7 +11,7 @@ $('#findsitterbutton').on('click', function () {
 });
 
 $('#findsitterbuttonagain').on('click', function () {
-  window.location = '/sitters/index'
+  window.location = '/appointments'
 });
 
 ////////////////////

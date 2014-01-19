@@ -10,7 +10,17 @@ class AppointmentNotify < ActionMailer::Base
       @all_emails += "#{email}" + ", "
     end
     @all_emails = @all_emails.chop.chop!
-    mail(to: "mzseidman@gmail.com", subject: 'WAAZZZUUPPP Bro from HomeSit')
+    mail(to: @all_emails, subject: 'WAAZZZUUPPP Bro from HomeSit')
+
+
+  def owner_notification(owners)
+
+    @helpneeded = []
+    @owners = Owner.all
+
+
+
+
 
   end
 end
