@@ -1,4 +1,4 @@
-<%= form_for(@appointment) do |f| %>
+<%= form_for @appointment, :url => {:action => 'create'} do |f| %>
   <% if @appointment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
@@ -28,7 +28,14 @@
     <%= f.label :zip_code %><br>
     <%= f.text_field :zip_code, :maxlength => 5 %>
   </div>
-  
+
+
+  <%= fields_for @owner do |o| %>
+  <div class="field">
+    <%= o.label :email %><br>
+    <%= o.text_field :email %>
+  </div>
+  <% end %>
 
   <!-- Get owner ID somehow!! -->
   <div class="actions">
