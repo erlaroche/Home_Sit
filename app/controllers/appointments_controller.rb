@@ -26,10 +26,10 @@ class AppointmentsController < ApplicationController
   # POST /appointments.json
   def create
     @appointment = Appointment.new(appointment_params)
-    @appointment.time_start = @appointment.time_start_convert
-    @appointment.time_end = @appointment.time_end_convert
+    time_start = @appointment.time_start_convert
+    time_end = @appointment.time_end_convert
 
-    session[:available] = Sitter.any_available(@appointment.time_start, @appointment.time_end)
+    session[:available] = Sitter.any_available(time_start, time_end)
 
     @emails = []
     (session[:available]).each do |key, value|
@@ -38,7 +38,7 @@ class AppointmentsController < ApplicationController
     
     respond_to do |format|
       if @appointment.save
-        AppointmentNotify.new_appointment(@emails).deliver
+        AppointmentNotify.new_appointment(@emails, @appointment, @appointment.time_start, @appointment.time_end).deliver
         format.html { redirect_to @appointment, notice: 'Appointment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @appointment }
       else

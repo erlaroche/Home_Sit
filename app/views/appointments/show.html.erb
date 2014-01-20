@@ -17,9 +17,9 @@
 
 <p>
   <strong>Available:</strong>
-  <% (session[:available]).each do |name, picture, email| %>
+  <% (session[:available]).each do |name, hash| %>
     <%= name %>
-    <%= link_to(image_tag(picture)) %>
+    <%= link_to(image_tag(hash['picture'])) %>
     <% end %>
 </p>
 
