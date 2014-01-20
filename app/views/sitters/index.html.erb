@@ -1,3 +1,4 @@
+
 <%= link_to home_path %>
   <table>
   <thead>
@@ -15,7 +16,13 @@
       <td><%= sitter.name%></td>
       <td><%= sitter.email%></td>
       <td><%= sitter.phone_number%></td>
-      <td><Picture</td>
+      <td>
+  
+      <% (session[:available]).each do |name, hash| %>
+        <%= name %>
+        <%= link_to(image_tag(hash['picture'])) %>
+      <% end %>
+      </td>
       <td><%= sitter.zip_code%></td>
     </tr>
    <%end%> 

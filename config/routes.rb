@@ -4,6 +4,7 @@ HouseSitter::Application.routes.draw do
 
 #show all sitters
 get 'sitters/index' => 'sitters#index', as: 'all_sitters' 
+
 get '/appointments/:id/confirm' => 'appointments#confirm', as: 'confirm'
 
 
