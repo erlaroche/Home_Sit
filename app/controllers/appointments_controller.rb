@@ -34,6 +34,7 @@ class AppointmentsController < ApplicationController
     (session[:available]).each do |key, value|
     @emails << session[:available][key]["email"]
     end
+    
     respond_to do |format|
       if @appointment.save
         AppointmentNotify.new_appointment(@emails).deliver
@@ -43,7 +44,7 @@ class AppointmentsController < ApplicationController
         format.html { render action: 'new' }
         format.json { render json: @appointment.errors, status: :unprocessable_entity }
       end
-    end
+    end 
   end
 
   # PATCH/PUT /appointments/1

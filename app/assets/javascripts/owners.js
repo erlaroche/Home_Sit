@@ -3,7 +3,7 @@
 // You can use CoffeeScript in this file: http://coffeescript.org/
 
 $('#sitterbutton').on('click', function () {
-  window.location = '/sitters/sign_up'
+  window.location = '/sitters/auth/google_oauth2'
 });
 
 $('#findsitterbutton').on('click', function () {
