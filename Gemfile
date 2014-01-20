@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+#define which version of ruby for heroku
 ruby '2.0.0'
 
 #add to deploy to heroku
