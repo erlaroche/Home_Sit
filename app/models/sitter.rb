@@ -47,7 +47,6 @@ class Sitter < ActiveRecord::Base
     client.authorization.redirect_uri = 'http://localhost:3000/sitters/auth/google_oauth2/callback'
     client.authorization.refresh_token = self.refresh_token
     client.authorization.fetch_access_token!
-    binding.pry
     # id parameter capable of quering more than one calendar.  Possible refactor
     result = client.execute({
       api_method: calendar.freebusy.query,

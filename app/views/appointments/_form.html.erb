@@ -28,7 +28,13 @@
     <%= f.label :zip_code %><br>
     <%= f.text_field :zip_code, :maxlength => 5 %>
   </div>
-  
+
+  <%= fields_for @owner do |o| %>
+  <div class="field">
+    <%= o.label :email %><br>
+    <%= o.text_field :email %>
+  </div>
+  <% end %>
 
   <!-- Get owner ID somehow!! -->
   <div class="actions">
