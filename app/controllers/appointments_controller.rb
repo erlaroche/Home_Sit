@@ -14,6 +14,7 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments/new
   def new
+    @owner = Owner.new
     @appointment = Appointment.new
   end
 
