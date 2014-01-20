@@ -1,24 +1,23 @@
+
 <%= link_to home_path %>
-  <table>
+<table class = "center">
+  <h1>All Our Sitters</h1>
   <thead>
     <tr>
       <th width="200">Name</th>
       <th width="150">Email</th>
-      <th width="150">Phone</th>
       <th width="150">Picture</th>
-      <th width="150">Zipcode</th>
+      
     </tr>
   </thead>
-  <% @sitters.each do |sitter|%>
   <tbody>
+  <% @sitters.each do |sitter|%>
     <tr>
-      <td><%= sitter.name%></td>
-      <td><%= sitter.email%></td>
-      <td><%= sitter.phone_number%></td>
-      <td><Picture</td>
-      <td><%= sitter.zip_code%></td>
+      <td><%= sitter.name %></td>
+      <td><%= sitter.email %></td>
+      <td><%= link_to(image_tag(sitter.picture)) %></td>
+        <% end %>
     </tr>
-   <%end%> 
   </tbody>
 </table>
 
