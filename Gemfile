@@ -23,6 +23,10 @@ gem 'pg'
 
 #use devise for authentication
 
+gem 'stripe'
+
+gem 'stripe_event'
+
 gem 'devise'
 
 #add hirb

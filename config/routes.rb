@@ -4,7 +4,7 @@ HouseSitter::Application.routes.draw do
   
   get '/appointments/:id/confirm' => 'appointments#confirm', as: 'confirm'
 
-
+  resources :charges
 
 # get '/videos/:id' => 'videos#show', as: ‘video’
   resources :appointments

@@ -45,7 +45,7 @@ class AppointmentsController < ApplicationController
     
     respond_to do |format|
       if @appointment.save
-        AppointmentNotify.new_appointment(@emails, @appointment, @appointment.time_start, @appointment.time_end).deliver
+        AppointmentNotify.new_appointment(@emails, @appointment).deliver
         format.html { redirect_to @appointment, notice: 'Appointment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @appointment }
       else
