@@ -20,6 +20,7 @@ class Sitter < ActiveRecord::Base
       sitter.auth_code = code
       sitter.picture  = auth.extra.raw_info.picture
       sitter.refresh_token = auth.credentials.refresh_token
+      binding.pry
     end
   end
 
