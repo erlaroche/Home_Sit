@@ -3,6 +3,9 @@ class AppointmentsController < ApplicationController
   before_action :get_times, only: [:new]
   # GET /appointments
   # GET /appointments.json
+
+  respond_to :js
+
   def index
     @appointments = Appointment.all
   end
@@ -26,8 +29,7 @@ class AppointmentsController < ApplicationController
   # POST /appointments.json
   def create
     if Owner.email_in_database(request.parameters["owner"])
-      flash.alert = 'Please sign in through google'
-      alert
+      return my_action
     else
       @owner = Owner.new(request.parameters["owner"])
       @owner.save
@@ -82,6 +84,12 @@ class AppointmentsController < ApplicationController
   def confirm
   end  
 
+  def my_action
+    respond_to do |format|
+      format.js { render :action => "message_function" }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_appointment
@@ -96,4 +104,5 @@ class AppointmentsController < ApplicationController
     def get_times
       @times_array = ["12:00 AM", "1:00 AM", "2:00 AM", "3:00 AM", "4:00 AM", "5:00 AM", "6:00 AM", "7:00 AM", "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM", "7:00 PM", "8:00 PM", "9:00 PM", "10:00 PM", "11:00 PM"] 
     end
+
 end
