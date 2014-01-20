@@ -6,6 +6,7 @@ class Owner < ActiveRecord::Base
   def self.email_in_database(new_email)
     status = false
     all = Owner.all
+    new_email = new_email["email"]
     all.each do |owner|
       if owner.email == new_email
         status = true
