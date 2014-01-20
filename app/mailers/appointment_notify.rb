@@ -12,7 +12,6 @@ class AppointmentNotify < ActionMailer::Base
     mail(to: @all_emails, subject: 'WAAZZZUUPPP Bro from HomeSit')
   end
 
-
   def owner_notification(owners)
 
     @helpneeded = []

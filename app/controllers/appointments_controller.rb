@@ -16,6 +16,7 @@ class AppointmentsController < ApplicationController
   def new
     @owner = Owner.new
     @appointment = Appointment.new
+    @owner = Owner.new
   end
 
   # GET /appointments/1/edit
@@ -25,6 +26,12 @@ class AppointmentsController < ApplicationController
   # POST /appointments
   # POST /appointments.json
   def create
+    if Owner.email_in_database(request.parameters["owner"]) == true
+      alert('Please sign in through google')
+    else
+      @owner = Owner.new(request.parameters["owner"])
+      @owner.save
+    end
     @appointment = Appointment.new(appointment_params)
     @appointment.time_start = @appointment.time_start_convert
     @appointment.time_end = @appointment.time_end_convert
