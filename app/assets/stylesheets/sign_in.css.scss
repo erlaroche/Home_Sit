@@ -14,14 +14,15 @@
   background: #00CCFF;
   margin: 0 auto;
 
+   p {
+    font-size: 20px;
+
+  }
+
 }
 
 
-#sitterbutton, #findsitterbutton, p {
-  font-size: 20px;
-  cursor:pointer;
-  color: black;
-}
+
 
 
 #sitter_email, #sitter_password {
