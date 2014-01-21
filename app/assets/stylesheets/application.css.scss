@@ -24,7 +24,12 @@
   overflow: hidden;
 }
 
+a:hover {
+  cursor: pointer;
+}
+
 #sitterbutton, #findsitterbutton, #findsitterbuttonagain2, #findsitterbuttonagain {
+  
   display: block;
   width: 200px;
   height: 200px;
@@ -39,11 +44,12 @@
   color: #303030;
   p {
     font-size: 20px;
-    cursor:pointer;
     color: white;
   }
 
 }
+
+
 
 
 #appointment_date, #appointment_zip_code {
