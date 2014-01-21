@@ -9,6 +9,7 @@ gem 'google-api-client'
 # Pry to test
 gem 'pry'
 
+gem 'debugger'
 # Google calendar queries
 gem 'unirest'
 
