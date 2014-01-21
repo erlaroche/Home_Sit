@@ -29,7 +29,7 @@ class AppointmentsController < ApplicationController
   # POST /appointments.json
   def create
     @owner_email = request.parameters["owner"]["email"]
-    if Owner.email_in_database(@owner_email)
+    if Owner.email_in_database(@owner_email) && !current_sitter
       return my_action
     else
       @owner = Owner.new(request.parameters["owner"])
@@ -42,7 +42,7 @@ class AppointmentsController < ApplicationController
       @appointment.owner_id = current_sitter.id
       @owner.appointment_id = @appointment.id
     else
-      @appointment.owner_id = Owner.find(:email => "#{@owner_email}").id
+      @appointment.owner_id = Owner.find_by(:email => "#{@owner_email}").id
     end
     @owner.save
     time_start = @appointment.time_start_convert

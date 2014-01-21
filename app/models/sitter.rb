@@ -4,12 +4,10 @@ class Sitter < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :lockable and 
   devise :database_authenticatable, :registerable, :omniauthable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable
 
   has_many :owners, :through => :appointments
   has_many :appointments, :through => :owners
-
-  # mount_uploader :picture, AvatarUploader 
 
   def self.from_omniauth(auth, code)
     where(auth.slice(:provider, :uid)).first_or_create do |sitter|
@@ -33,10 +31,6 @@ class Sitter < ActiveRecord::Base
     else
       super
     end
-  end
-
-  def password_required?
-    super && provider.blank?
   end
 
   def calendar_query(time_start, time_end)
@@ -74,6 +68,14 @@ class Sitter < ActiveRecord::Base
       end
     end
     return @available
+  end
+
+  def password_required?
+    false
+  end
+
+  def email_required?
+    false
   end
 
 end

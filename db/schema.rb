@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140121042559) do
+ActiveRecord::Schema.define(version: 20140121203859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 20140121042559) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "zip_code"
-    t.string   "time"
     t.integer  "owner_id"
     t.integer  "sitter_id"
   end
@@ -40,6 +39,7 @@ ActiveRecord::Schema.define(version: 20140121042559) do
     t.datetime "updated_at"
     t.boolean  "registered"
     t.integer  "appointment_id"
+    t.string   "phone_number"
   end
 
   add_index "owners", ["appointment_id"], name: "index_owners_on_appointment_id", using: :btree
@@ -52,12 +52,7 @@ ActiveRecord::Schema.define(version: 20140121042559) do
   create_table "sitters", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.string   "email"
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -70,17 +65,9 @@ ActiveRecord::Schema.define(version: 20140121042559) do
     t.string   "auth_code"
     t.string   "refresh_token"
     t.string   "picture"
+    t.string   "linked_in"
   end
 
   add_index "sitters", ["email"], name: "index_sitters_on_email", unique: true, using: :btree
-  add_index "sitters", ["reset_password_token"], name: "index_sitters_on_reset_password_token", unique: true, using: :btree
-
-  create_table "timeblocks", force: true do |t|
-    t.string   "name"
-    t.string   "time_start"
-    t.string   "time_end"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
 end

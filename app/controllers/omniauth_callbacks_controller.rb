@@ -8,10 +8,15 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     # Call from_omniauth method from Sitter model
     sitter = Sitter.from_omniauth(auth_hash, code)
     if sitter.persisted?
-      sign_in_and_redirect sitter, notice: "Signed in!"
+      if sitter.zip_code = nil
+        redirect_to new_sitter_path(sitter.id)
+      else
+        session[:sitter_id] = sitter["id"]
+        redirect_to sitter, notice: "Signed in!"
+      end
     else
       session["devise.sitter_attributes"] = sitter.attributes
-      redirect_to new_sitter_registration_url
+      redirect_to new_sitter_path
     end
   end
 

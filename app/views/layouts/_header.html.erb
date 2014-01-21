@@ -12,7 +12,7 @@
       <li class="active">
 
           <li>
-            <% if current_sitter %>
+            <% if current_sitter || session[:sitter_id] %>
              <%= link_to "Sign Out", destroy_sitter_session_path, method: :delete %>
 
             <% else %>

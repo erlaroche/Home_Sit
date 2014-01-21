@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    [:name, :email, :phone_number, :attachment, :zip_code, :password, :password_confirmation].each do |field|
+    [:name, :email, :phone_number, :zip_code].each do |field|
       devise_parameter_sanitizer.for(:sign_up) << field
     end
   end
