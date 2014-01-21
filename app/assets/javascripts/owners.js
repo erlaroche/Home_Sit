@@ -2,13 +2,33 @@
 // All this logic will automatically be available in application.js.
 // You can use CoffeeScript in this file: http://coffeescript.org/
 
+
+
+
 $('#sitterbutton').on('click', function () {
   window.location = '/sitters/auth/google_oauth2'
 });
 
-$('#findsitterbutton').on('click', function () {
-  window.location = '/appointments/new'
+
+//////////////mouseover?????????????????
+
+
+$("#findsitterbutton").click(function() {
+    doBounce($(this), 3, '10px', 300);   
 });
+
+
+function doBounce(element, times, distance, speed) {
+    for(i = 0; i < times; i++) {
+        element.animate({marginTop: '-='+distance},speed)
+            .animate({marginTop: '+='+distance},speed);
+    }  
+    $('#findsitterbutton').on('click', function () {
+      window.location = '/appointments/new'
+    });      
+}
+
+
 
 $('#findsitterbuttonagain').on('click', function () {
   window.location = '/sitters/index'
