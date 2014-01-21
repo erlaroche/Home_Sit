@@ -19,9 +19,11 @@ class ChargesController < ApplicationController
       :customer    => customer.id,
       :amount      => @amount,
       :description => 'Rails Stripe customer',
-      :currency    => 'usd'
-       capture = false
-    )
+      :currency    => 'usd',
+     )  
+
+    capture = false
+    
 
     # save_stripe_customer_id(user, customer.id)
 
