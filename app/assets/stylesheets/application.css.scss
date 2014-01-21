@@ -17,12 +17,15 @@
 
   .full-width-row  {
     width: 100%;
-    /*background-color: #A9E2F3;*/
     background: image-url('blurred-background.jpg') no-repeat;
-    min-height: 1280px; // to make it full-screen top to bottom on most screens
     background-size: cover; //this resizes the background for any screen size
     padding: 6em 0em 0em 0em; //give it some breathing room from the top
     overflow: hidden;
+ }
+
+ .pic {
+  position: relative;
+  width: 100%;
  }
 
 #appointment_date, #appointment_zip_code {
@@ -83,6 +86,8 @@ html, body {height:100%;}
 
   
 /** format text **/
+
+
 article h1 {
   font-size:40px;
    color: white;
@@ -104,13 +109,25 @@ article p {
   text-decoration: none; 
 }
 
-#picture {
-  opacity: 0.3;
+.pic {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 25px;
+  border: 10px solid black;
+
+}
+
+.pic1 {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 
 #confirmbutton {
-  width: 100px;
-  height: 200px;
+  width: 400px;
+  height: 00px;
 }
 
 table.center {
