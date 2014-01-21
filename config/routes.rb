@@ -7,8 +7,6 @@ get 'sitters/index' => 'sitters#index', as: 'all_sitters'
 
 get '/appointments/:id/confirm' => 'appointments#confirm', as: 'confirm'
 
-  resources :charges
-
 # get '/videos/:id' => 'videos#show', as: ‘video’
   resources :appointments
 
@@ -16,4 +14,5 @@ get '/appointments/:id/confirm' => 'appointments#confirm', as: 'confirm'
 
   devise_for :sitters, controllers: {omniauth_callbacks: "omniauth_callbacks"}
  
+  #Need to change for Sitter confirm!!
 end
