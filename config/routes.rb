@@ -3,7 +3,7 @@ HouseSitter::Application.routes.draw do
   # root "sessions#new", as: 'sign_in'
   
   get '/appointments/:id/confirm' => 'appointments#confirm', as: 'confirm'
-  post '/appointments' => 'appointments#sitter_confirm'
+  
 
 
 # get '/videos/:id' => 'videos#show', as: ‘video’
@@ -13,4 +13,6 @@ HouseSitter::Application.routes.draw do
 
   devise_for :sitters, controllers: {omniauth_callbacks: "omniauth_callbacks"}
  
+  #Need to change for Sitter confirm!!
+  post '/appointments' => 'appointments#sitter_confirm'
 end

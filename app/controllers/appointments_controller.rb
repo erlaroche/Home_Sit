@@ -28,13 +28,24 @@ class AppointmentsController < ApplicationController
   # POST /appointments
   # POST /appointments.json
   def create
-    if Owner.email_in_database(request.parameters["owner"])
+    @owner_email = request.parameters["owner"]["email"]
+    if Owner.email_in_database(@owner_email)
       return my_action
     else
       @owner = Owner.new(request.parameters["owner"])
       @owner.save
     end
     @appointment = Appointment.new(appointment_params)
+    @appointment.save
+    # Technically current_owner(if user is signed in)
+    if current_sitter
+      binding.pry
+      @appointment.owner_id = current_sitter.id
+      @owner.appointment_id = @appointment.id
+    else
+      @appointment.owner_id = Owner.find(:email => "#{@owner_email}").id
+    end
+    @owner.save
     time_start = @appointment.time_start_convert
     time_end = @appointment.time_end_convert
 
@@ -82,12 +93,13 @@ class AppointmentsController < ApplicationController
 
   def confirm
     @id = params[:id]
-    @sitter_id = 
+    @sitter_id = current_sitter.id
+    
   end
 
-  def sitter_confirm
+  # def sitter_confirm
 
-  end  
+  # end  
 
   def my_action
     respond_to do |format|
