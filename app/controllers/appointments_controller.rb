@@ -39,7 +39,6 @@ class AppointmentsController < ApplicationController
     @appointment.save
     # Technically current_owner(if user is signed in)
     if current_sitter
-      binding.pry
       @appointment.owner_id = current_sitter.id
       @owner.appointment_id = @appointment.id
     else
@@ -70,6 +69,7 @@ class AppointmentsController < ApplicationController
   # PATCH/PUT /appointments/1
   # PATCH/PUT /appointments/1.json
   def update
+    @appointment.sitter_id = params["appointment"]["sitter_id"]
     respond_to do |format|
       if @appointment.update(appointment_params)
         format.html { redirect_to @appointment, notice: 'Appointment was successfully updated.' }
@@ -92,14 +92,18 @@ class AppointmentsController < ApplicationController
   end
 
   def confirm
-    @id = params[:id]
-    @sitter_id = current_sitter.id
+    @appointment = Appointment.all.find(params[:id])
+    if current_sitter
+      @sitter_id = current_sitter.id
+    # else
+      # alert('Please sign in first')
+    end
     
   end
 
-  # def sitter_confirm
-
-  # end  
+  def sitter_confirm
+    
+  end  
 
   def my_action
     respond_to do |format|

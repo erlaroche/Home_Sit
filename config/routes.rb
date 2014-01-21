@@ -14,5 +14,4 @@ HouseSitter::Application.routes.draw do
   devise_for :sitters, controllers: {omniauth_callbacks: "omniauth_callbacks"}
  
   #Need to change for Sitter confirm!!
-  post '/appointments' => 'appointments#sitter_confirm'
 end

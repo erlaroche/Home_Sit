@@ -4,7 +4,6 @@
     <%= @greeting3 %>   
     <%= @greeting2 %>
 
-<%= link_to 'Confirm', "http://localhost:3000/appointments/#{@id}/confirm" %>
+<%= link_to 'Confirm', "http://localhost:3000/appointments/#{@id}/confirm", :controller => 'appointments', :method => 'confirm' %>
 
 </p>
-<!-- <input type="hidden" data-id="#{@hidden_id}"> -->
