@@ -38,11 +38,12 @@ class ChargesController < ApplicationController
   end  
 
   def save
-  save_stripe_customer_id(user, customer.id)
+    save_stripe_customer_id(user, customer.id)
   end
-  
+    
   def later
     customer_id = get_stripe_customer_id(user)
+
   end  
 end
 
