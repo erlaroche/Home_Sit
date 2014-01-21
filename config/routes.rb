@@ -3,7 +3,7 @@ HouseSitter::Application.routes.draw do
   # root "sessions#new", as: 'sign_in'
   
   get '/appointments/:id/confirm' => 'appointments#confirm', as: 'confirm'
-
+  post '/appointments' => 'appointments#sitter_confirm'
 
 
 # get '/videos/:id' => 'videos#show', as: ‘video’

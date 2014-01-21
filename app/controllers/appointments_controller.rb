@@ -44,10 +44,9 @@ class AppointmentsController < ApplicationController
     (session[:available]).each do |key, value|
     @emails << session[:available][key]["email"]
     end
-    
     respond_to do |format|
       if @appointment.save
-        AppointmentNotify.new_appointment(@emails, @appointment, @appointment.time_start, @appointment.time_end).deliver
+        AppointmentNotify.new_appointment(@emails, @appointment).deliver
         format.html { redirect_to @appointment, notice: 'Appointment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @appointment }
       else
@@ -82,6 +81,12 @@ class AppointmentsController < ApplicationController
   end
 
   def confirm
+    @id = params[:id]
+    @sitter_id = 
+  end
+
+  def sitter_confirm
+
   end  
 
   def my_action

@@ -1,13 +1,12 @@
 class AppointmentNotify < ActionMailer::Base
   default from: "stewartimel@gmail.com"
 
-  def new_appointment(users, appointment, time_start, time_end)
+  def new_appointment(users, appointment)
     @appointment = appointment
     @greeting = "Hi, Check out the newest appointment!"
     @greeting2 = "Click here to confirm your interest!"
-    @greeting3 = "An appointment begins at #{time_start} and ends at #{time_end}"
-
-
+    @greeting3 = "An appointment begins at #{appointment.time_start} and ends at #{appointment.time_end}"
+    @id = appointment.id
     @all_emails = []
     users.each do |email| 
       @all_emails << email
