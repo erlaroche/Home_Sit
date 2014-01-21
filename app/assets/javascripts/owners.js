@@ -30,12 +30,14 @@ function doBounce(element, times, distance, speed) {
 
 
 
-$('#findsitterbuttonagain').on('click', function () {
-  window.location = '/sitters/index'
-});
+
 
 $('#findsitterbuttonagain2').on('click', function () {
   window.location = '/appointments'
+});
+
+$('#findsitterbuttonagain').on('click', function () {
+  window.location = '/sitters/index'
 });
 
 ////////////////////

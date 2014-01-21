@@ -15,15 +15,35 @@
  */
 
 
-  .full-width-row  {
-    width: 100%;
-    background: image-url('blurred-background.jpg') no-repeat;
-    background-size: cover; //this resizes the background for any screen size
-    padding: 6em 0em 0em 0em; //give it some breathing room from the top
-    overflow: hidden;
-    box-shadow: 0px 20px 20px 10px;
-    color: #303030;
- }
+.full-width-row  {
+  width: 100%;
+  background: image-url('blurred-background.jpg') no-repeat;
+  min-height: 1280px;
+  background-size: cover; //this resizes the background for any screen size
+  padding: 6em 0em; //give it some breathing room from the top
+  overflow: hidden;
+}
+
+#sitterbutton, #findsitterbutton, #findsitterbuttonagain2, #findsitterbuttonagain {
+  display: block;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  font-size: 70px;
+  line-height: 100px;
+  text-align: center;
+  border: 2px solid black;
+  background: #00CCFF;
+  margin: 0 auto;
+  box-shadow: 0px 10px 10px 10px;
+  color: #303030;
+  p {
+    font-size: 20px;
+    cursor:pointer;
+    color: white;
+  }
+
+}
 
 
 #appointment_date, #appointment_zip_code {
@@ -80,7 +100,6 @@ html, body {height:100%;}
   text-align: center;
   margin:0 auto;
   padding:20% 0 0;
-  
 }
 
 
