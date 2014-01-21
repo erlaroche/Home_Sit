@@ -1,4 +1,8 @@
 <h1> This is where you will confirm! <h1>
+<p><%= @appointment.id %></p>
+<p><%= @sitter_id %></p>
 
-  <input type="submit" name="confirm" value="Confirm" id="confirmbutton" />
-    
+ <%= form_for @appointment do |f| %>
+  <%= f.hidden_field :sitter_id, value: @sitter_id %>
+  <%= f.submit "Confirm", class: "btn" %>
+<% end %>
