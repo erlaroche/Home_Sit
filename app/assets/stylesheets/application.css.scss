@@ -21,12 +21,10 @@
     background-size: cover; //this resizes the background for any screen size
     padding: 6em 0em 0em 0em; //give it some breathing room from the top
     overflow: hidden;
+    box-shadow: 0px 20px 20px 10px;
+    color: #303030;
  }
 
- .pic {
-  position: relative;
-  width: 100%;
- }
 
 #appointment_date, #appointment_zip_code {
   background-color: transparent;
@@ -70,6 +68,7 @@ html, body {height:100%;}
   position: relative;
   min-height: 100%;
   background-position: 100% 0; 
+
     
 }
   
@@ -81,6 +80,7 @@ html, body {height:100%;}
   text-align: center;
   margin:0 auto;
   padding:20% 0 0;
+  
 }
 
 
@@ -115,6 +115,8 @@ article p {
   margin-right: auto;
   border-radius: 25px;
   border: 10px solid black;
+  box-shadow: 0px 10px 10px 10px;
+  color: #303030;
 
 }
 
