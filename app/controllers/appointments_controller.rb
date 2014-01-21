@@ -48,6 +48,7 @@ class AppointmentsController < ApplicationController
     time_start = @appointment.time_start_convert
     time_end = @appointment.time_end_convert
 
+    # Does this need to be destroyed after I use it?
     session[:available] = Sitter.any_available(time_start, time_end)
 
     @emails = []
@@ -72,6 +73,7 @@ class AppointmentsController < ApplicationController
     @appointment.sitter_id = params["appointment"]["sitter_id"]
     respond_to do |format|
       if @appointment.update(appointment_params)
+        AppointmentNotify.owner_notification(@appointment)
         format.html { redirect_to @appointment, notice: 'Appointment was successfully updated.' }
         format.json { head :no_content }
       else
