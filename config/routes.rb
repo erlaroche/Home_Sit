@@ -8,14 +8,16 @@ get 'sitters/index' => 'sitters#index', as: 'all_sitters'
 get '/appointments/:id/confirm' => 'appointments#confirm', as: 'confirm'
 
 get '/sitters/:id/new' => 'sitters#new', as: 'new_sitter'
+
+match '/sitters/auth/:provider' => 'omniauth_callbacks#passthru', as: 'sitter_omniauth_authorize', :via => [:get, :post], :provider=>/google_oauth2/
+match '/sitters/auth/:action/callback' => 'omniauth_callbacks#(?-mix:google_oauth2)', :via => [:get, :post]
 # get '/videos/:id' => 'videos#show', as: ‘video’
+  
   resources :appointments
 
   resources :owners
 
   resources :sitters
-
-  devise_for :sitters, controllers: {omniauth_callbacks: "omniauth_callbacks"}
  
   #Need to change for Sitter confirm!!
 end

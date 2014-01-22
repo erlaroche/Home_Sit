@@ -12,11 +12,11 @@
       <li class="active">
 
           <li>
-            <% if current_sitter || session[:sitter_id] %>
+            <% if session[:sitter_id] %>
              <%= link_to "Sign Out", destroy_sitter_session_path, method: :delete %>
 
             <% else %>
-            <%= link_to (image_tag ("google.png")), sitter_omniauth_authorize_path(:google_oauth2) %>
+            <%= link_to (image_tag ("google.png")), '/auth/google_oauth2' %>
               <% end %>
           </li>
     

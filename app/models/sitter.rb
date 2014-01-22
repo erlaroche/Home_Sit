@@ -1,35 +1,18 @@
 class Sitter < ActiveRecord::Base
   require 'google/api_client'
   require 'json'
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :lockable and 
-  devise :database_authenticatable, :registerable, :omniauthable,
-         :recoverable, :rememberable, :trackable
 
   has_many :owners, :through => :appointments
   has_many :appointments, :through => :owners
 
-  def self.from_omniauth(auth, code)
-    where(auth.slice(:provider, :uid)).first_or_create do |sitter|
-      sitter.provider = auth.provider
-      sitter.uid = auth.uid
-      sitter.name = auth.info.name
-      sitter.email = auth.info.email
-      sitter.auth_code = code
-      sitter.picture  = auth.extra.raw_info.picture
-      sitter.refresh_token = auth.credentials.refresh_token
+  def self.from_omniauth(auth, refresh_token)
+    where(auth.slice(:google_id)).first_or_create do |sitter|
+      sitter.google_id = auth["id"]
+      sitter.name = auth["name"]
+      sitter.email = auth["email"]
+      sitter.picture  = auth["picture"]
+      sitter.refresh_token = refresh_token
 
-    end
-  end
-
-  def self.new_with_session(params, session)
-    if session["devise.sitter_attributes"]
-      new(session["devise.sitter_attributes"], without_protection: true) do |sitter|
-        sitter.attributes = params
-        sitter.valid?
-      end
-    else
-      super
     end
   end
 
