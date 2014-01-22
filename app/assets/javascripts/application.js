@@ -97,9 +97,14 @@ $('#findsitterbuttonagain').on('click', function () {
   window.location = '/sitters/index'
 });
 
-// $('#findsitterbuttonagain').on('click', function () {
-//   $(this).toggle("explode");
-// });
+// jQuery for pics on homepage
+$('.pic1').on('click', function () {
+  $(this).toggle("explode");
+});
+
+$('.pic').on('click', function () {
+  $(this).toggle("explode");
+});
 
 
 
