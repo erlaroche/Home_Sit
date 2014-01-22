@@ -9,7 +9,9 @@ class SittersController < ApplicationController
     @sitter = Sitter.all.find(params[:id])
     @sitter.phone_number = params["sitter"]["phone_number"]
     @sitter.zip_code = params["sitter"]["zip_code"]
-
+    @sitter.linked_in = params["sitter"]["linked_in"]
+    @sitter.email = params["sitter"]["email"]
+    Sessions.login(@sitter.id)
     respond_to do |format|
       if @sitter.save
         format.html { redirect_to home_path, notice: 'Sitter was successfully created.' }

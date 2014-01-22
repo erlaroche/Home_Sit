@@ -5,13 +5,14 @@ class Sitter < ActiveRecord::Base
   has_many :owners, :through => :appointments
   has_many :appointments, :through => :owners
 
-  def self.from_omniauth(auth, refresh_token)
+  def self.from_omniauth(auth, refresh_token, code)
     where(auth.slice(:google_id)).first_or_create do |sitter|
       sitter.google_id = auth["id"]
       sitter.name = auth["name"]
       sitter.email = auth["email"]
       sitter.picture  = auth["picture"]
       sitter.refresh_token = refresh_token
+      sitter.auth_code = code
 
     end
   end
@@ -53,12 +54,13 @@ class Sitter < ActiveRecord::Base
     return @available
   end
 
-  def password_required?
-    false
-  end
-
-  def email_required?
-    false
+  def self.authenticate(current_sitter)
+    Sitter.all.each do |sitter|
+      if current_sitter.google_id = sitter.google_id
+        return true
+      end
+    end
+    return false
   end
 
 end

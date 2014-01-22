@@ -3,6 +3,9 @@ HouseSitter::Application.routes.draw do
   # root "sessions#new", as: 'sign_in'
 
 #show all sitters
+get 'sessions/:id' => 'sessions#login', as: 'new_session'
+
+get 'sessions' => 'sessions#destroy', as: 'destroy_sitter_session' 
 get 'sitters/index' => 'sitters#index', as: 'all_sitters' 
 
 get '/appointments/:id/confirm' => 'appointments#confirm', as: 'confirm'
