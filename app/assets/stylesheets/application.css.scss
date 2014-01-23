@@ -10,12 +10,12 @@
  *
  *= require_self
  *= require foundation_and_overrides
- *= require font-awesome
+ * require font-awesome
  
  *= require_tree .
  */
 
- @import "font-awesome";
+ /* @import "font-awesome"; */
 
 
 .full-width-row  {

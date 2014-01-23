@@ -30,7 +30,7 @@ class AppointmentsController < ApplicationController
   def create
     @owner_email = request.parameters["owner"]["email"]
     if Owner.email_in_database(@owner_email)
-      return my_action
+      flash.now.alert = "Please Sign In"
     else
       @owner = Owner.new(request.parameters["owner"])
       @owner.save
