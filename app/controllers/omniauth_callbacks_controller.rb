@@ -17,7 +17,7 @@ require "uri"
     request["Content-Type"] = "application/x-www-form-urlencoded; utf-8"
 
     response = http.request(request)
-
+    binding.pry
     output = JSON.parse(response.body)
     refresh_token = output["refresh_token"]
 
