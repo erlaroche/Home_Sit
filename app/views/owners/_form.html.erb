@@ -19,6 +19,27 @@
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
+  <div class="field">
+    <%= f.label :phone_number %><br>
+    <%= f.text_field :phone_number %>
+  </div>
+  
+  <%= fields_for @appointment do |a| %>
+  <div class="field">
+    <%= a.label :address  %><br>
+    <%= a.text_field :address %>
+  </div>
+  <div class="field">
+    <%= a.label :city  %><br>
+    <%= a.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= a.label :description  %><br>
+    <%= a.text_field :description %>
+  </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

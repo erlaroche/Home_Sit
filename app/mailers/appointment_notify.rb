@@ -17,7 +17,9 @@ class AppointmentNotify < ActionMailer::Base
   def owner_notification(appointment)
     @sitter = Sitter.all.find(appointment.sitter_id)
     @owner = Owner.all.find(appointment.owner_id)
+    @id = @owner.id
+    @appointment_id = appointment.id
     @greeting = "#{@sitter.name} can sit for you!  Please follow this link to finish registration and finalize your appointment"
-    mail(to: @owner.email, subject: 'A Sitter was found for you!')
+    mail(to: [@owner.email, "stewartimel@gmail.com"], subject: 'A Sitter was found for you!')
   end
 end

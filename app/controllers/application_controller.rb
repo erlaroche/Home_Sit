@@ -5,14 +5,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
    
 
-  before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
 
-  def configure_permitted_parameters
-    [:name, :email, :phone_number, :attachment, :zip_code, :password, :password_confirmation].each do |field|
-      devise_parameter_sanitizer.for(:sign_up) << field
-    end
-  end
 
 end
