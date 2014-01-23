@@ -2,9 +2,6 @@ source 'https://rubygems.org'
 #define which version of ruby for heroku
 ruby '2.0.0'
 
-# add font-awesome
-gem "font-awesome-rails"
-
 #add to deploy to heroku
 gem 'rails_12factor', group: :production
 
