@@ -37,13 +37,12 @@ class AppointmentsController < ApplicationController
     end
     @appointment = Appointment.new(appointment_params)
     @appointment.save
-    # Technically current_owner(if user is signed in)
-    if session[:sitter_id]
-      @appointment.owner_id = session[:sitter_id]
-      @owner.appointment_id = @appointment.id
-    else
-      @appointment.owner_id = Owner.find_by(:email => "#{@owner_email}").id
-    end
+
+    @owner = Owner.find_by(:email => "#{@owner_email}")
+    
+    @appointment.owner_id = @owner.id
+    @owner.appointment_id = @appointment.id
+        
     @owner.save
     time_start = @appointment.time_start_convert
     time_end = @appointment.time_end_convert
@@ -75,7 +74,7 @@ class AppointmentsController < ApplicationController
     respond_to do |format|
       if @appointment.save
         AppointmentNotify.owner_notification(@appointment).deliver
-        format.html { redirect_to @appointment, notice: 'Appointment was successfully updated.' }
+        format.html { redirect_to home_path, notice: 'Appointment was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

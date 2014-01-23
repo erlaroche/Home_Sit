@@ -40,9 +40,14 @@ class OwnersController < ApplicationController
   # PATCH/PUT /owners/1
   # PATCH/PUT /owners/1.json
   def update
+    @appointment = Appointment.all.find(request.parameters["id"])
+    @appointment.address = request.parameters["appointment"]["address"]
+    @appointment.city = request.parameters["appointment"]["city"]
+    @appointment.description = request.parameters["appointment"]["description"]
+    @appointment.save
     respond_to do |format|
       if @owner.update(owner_params)
-        format.html { redirect_to @owner, notice: 'Owner was successfully updated.' }
+        format.html { redirect_to home_path, notice: 'Owner was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -59,6 +64,11 @@ class OwnersController < ApplicationController
       format.html { redirect_to owners_url }
       format.json { head :no_content }
     end
+  end
+
+  def confirm
+    @owner = Owner.all.find(params[:id])
+    @appointment = Appointment.all.find(params[:appointment_id])
   end
 
   private

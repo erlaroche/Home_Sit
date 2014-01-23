@@ -54,10 +54,10 @@ class Sitter < ActiveRecord::Base
     return @available
   end
 
-  def self.authenticate(current_sitter)
+  def self.authenticate(id)
     Sitter.all.each do |sitter|
-      if current_sitter.google_id = sitter.google_id
-        return true
+      if id = sitter.google_id
+        return sitter
       end
     end
     return false

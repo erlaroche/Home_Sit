@@ -19,7 +19,6 @@ require "uri"
     response = http.request(request)
 
     output = JSON.parse(response.body)
-    binding.pry
     refresh_token = output["refresh_token"]
 
     client = Service.new
@@ -38,14 +37,15 @@ require "uri"
       }) 
 
     profile = JSON.parse(result.body)
-    sitter = Sitter.from_omniauth(profile, refresh_token, google_code)
+    goog_id = profile["id"]
 
-    if Sitter.authenticate(sitter)
+    sitter = Sitter.authenticate(goog_id)
+    if sitter
         redirect_to new_session_path(sitter.id)
     else
+        sitter = Sitter.from_omniauth(profile, refresh_token, google_code)
         redirect_to new_sitter_path(sitter.id)
     end
-
   end
 
   alias_method :google_oauth2, :all
