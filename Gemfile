@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 #define which version of ruby for heroku
 ruby '2.0.0'
 
+gem 'warden'
+
 gem 'nifty-generators'
 
 gem 'omniauth'
