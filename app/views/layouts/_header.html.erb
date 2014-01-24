@@ -1,3 +1,5 @@
+
+
 <nav class="top-bar" data-topbar>
   <ul class="title-area">
     <li class="name">
@@ -12,11 +14,11 @@
       <li class="active">
 
           <li>
-            <% if current_sitter %>
-             <%= link_to "Sign Out", destroy_sitter_session_path, method: :delete %>
+            <% if session[:sitter_id] %>
+             <%= link_to "Sign Out", destroy_sitter_session_path %>
 
             <% else %>
-            <%= link_to (image_tag ("google.png")), sitter_omniauth_authorize_path(:google_oauth2) %>
+            <%= link_to (image_tag ("google.png")), '/auth/google_oauth2' %>
               <% end %>
           </li>
     

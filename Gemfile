@@ -2,6 +2,11 @@ source 'https://rubygems.org'
 #define which version of ruby for heroku
 ruby '2.0.0'
 
+gem 'warden'
+
+gem 'nifty-generators'
+
+gem 'omniauth'
 #add to deploy to heroku
 gem 'rails_12factor', group: :production
 
@@ -9,7 +14,7 @@ gem 'json'
 # helps google api client
 gem 'launchy'
 
-gem 'google-api-client'
+gem 'google-api-client', :require => 'google/api_client'
 
 # Pry to test
 gem 'pry'
@@ -19,7 +24,8 @@ gem 'debugger'
 gem 'unirest'
 
 # Google log in
-gem "omniauth-google-oauth2"
+gem 'omniauth-google-oauth2', :git => 'https://github.com/zquestz/omniauth-google-oauth2.git'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
@@ -27,13 +33,9 @@ gem 'rails', '4.0.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
-#use devise for authentication
-
 gem 'stripe'
 
 gem 'stripe_event'
-
-gem 'devise'
 
 #add hirb
 

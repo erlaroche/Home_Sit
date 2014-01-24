@@ -4,7 +4,7 @@ class AppointmentsController < ApplicationController
   # GET /appointments
   # GET /appointments.json
 
-  respond_to :js
+  # respond_to :js
 
   def index
     @appointments = Appointment.all
@@ -30,20 +30,19 @@ class AppointmentsController < ApplicationController
   def create
     @owner_email = request.parameters["owner"]["email"]
     if Owner.email_in_database(@owner_email)
-      return my_action
+      flash.now.alert = "Please Sign In"
     else
       @owner = Owner.new(request.parameters["owner"])
       @owner.save
     end
     @appointment = Appointment.new(appointment_params)
     @appointment.save
-    # Technically current_owner(if user is signed in)
-    if current_sitter
-      @appointment.owner_id = current_sitter.id
-      @owner.appointment_id = @appointment.id
-    else
-      @appointment.owner_id = Owner.find(:email => "#{@owner_email}").id
-    end
+
+    @owner = Owner.find_by(:email => "#{@owner_email}")
+    
+    @appointment.owner_id = @owner.id
+    @owner.appointment_id = @appointment.id
+        
     @owner.save
     time_start = @appointment.time_start_convert
     time_end = @appointment.time_end_convert
@@ -70,11 +69,12 @@ class AppointmentsController < ApplicationController
   # PATCH/PUT /appointments/1
   # PATCH/PUT /appointments/1.json
   def update
+    @appointment = Appointment.find(params["appointment"]["appointment_id"])
     @appointment.sitter_id = params["appointment"]["sitter_id"]
     respond_to do |format|
-      if @appointment.update(appointment_params)
-        AppointmentNotify.owner_notification(@appointment)
-        format.html { redirect_to @appointment, notice: 'Appointment was successfully updated.' }
+      if @appointment.save
+        AppointmentNotify.owner_notification(@appointment).deliver
+        format.html { redirect_to home_path, notice: 'Appointment was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -95,8 +95,8 @@ class AppointmentsController < ApplicationController
 
   def confirm
     @appointment = Appointment.all.find(params[:id])
-    if current_sitter
-      @sitter_id = current_sitter.id
+    if session[:sitter_id]
+      @sitter_id = session[:sitter_id]
     # else
       # alert('Please sign in first')
     end
