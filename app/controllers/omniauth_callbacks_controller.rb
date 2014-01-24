@@ -3,6 +3,7 @@ require "net/http"
 require "uri"
 
   def all
+    binding.pry
     google_code = params[:code]
     uri = URI.parse("https://accounts.google.com/o/oauth2/token")
     http = Net::HTTP.new(uri.host, uri.port)
@@ -20,7 +21,6 @@ require "uri"
     output = JSON.parse(response.body)
     refresh_token = output["refresh_token"]
     access_token = output["access_token"]
-    binding.pry
 
     new_uri = URI.parse("https://googleapis.com")
 
