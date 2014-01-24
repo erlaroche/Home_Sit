@@ -47,6 +47,8 @@ class OwnersController < ApplicationController
     @appointment.save
     respond_to do |format|
       if @owner.update(owner_params)
+        AppointmentNotify.owner_finalize(@appointment).deliver
+        AppointmentNotify.sitter_finalize(@appointment).deliver
         format.html { redirect_to home_path, notice: 'Owner was successfully updated.' }
         format.json { head :no_content }
       else
