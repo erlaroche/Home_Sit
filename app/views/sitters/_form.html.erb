@@ -1,0 +1,36 @@
+<div class="full-width-row">
+  <div class="row">
+    <div class="small-12 medium-6 large-4 small-centered columns">
+      <h2>Sign up</h2>
+
+      <%= form_for @sitter, :action => 'create' do |f| %>
+        
+        <div>
+          <%= f.label :phone_number %><br />
+          <%= f.telephone_field :phone_number, :maxlength => 10 %>
+        </div>
+
+        <div>
+          <%= f.label :zip_code %><br />
+          <%= f.text_field :zip_code, :maxlength => 5 %>
+        </div>
+
+        <div>
+          <%= f.label :linked_in %><br />
+          <%= f.text_field :linked_in %>
+        </div>
+
+        <div>
+          <%= f.label :email %><br />
+          <%= f.text_field :email %>
+        </div>
+
+        <div>
+          <%= f.submit "Sign up", :class => "button" %>
+        </div>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>
