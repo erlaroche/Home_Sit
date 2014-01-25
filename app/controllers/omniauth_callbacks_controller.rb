@@ -1,8 +1,10 @@
 class OmniauthCallbacksController < ApplicationController
-require "net/http"
-require "uri"
+# require "net/http"
+# require "uri"
 
   def all
+    binding.pry
+
     google_code = params[:code]
 
     uri = URI.parse("https://accounts.google.com/o/oauth2/token")
@@ -17,7 +19,6 @@ require "uri"
     request["Content-Type"] = "application/x-www-form-urlencoded; utf-8"
 
     response = http.request(request)
-    binding.pry
     output = JSON.parse(response.body)
     refresh_token = output["refresh_token"]
 

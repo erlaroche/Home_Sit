@@ -2,15 +2,13 @@ source 'https://rubygems.org'
 #define which version of ruby for heroku
 ruby '2.0.0'
 
-gem 'nifty-generators'
-
-gem 'omniauth'
+gem 'activerecord-session_store'
+# gem 'omniauth'
 #add to deploy to heroku
 gem 'rails_12factor', group: :production
 
 gem 'json'
 # helps google api client
-gem 'launchy'
 
 gem 'google-api-client', :require => 'google/api_client'
 
@@ -19,10 +17,10 @@ gem 'pry'
 
 gem 'debugger'
 # Google calendar queries
-gem 'unirest'
+# gem 'unirest'
 
 # Google log in
-gem 'omniauth-google-oauth2', :git => 'https://github.com/zquestz/omniauth-google-oauth2.git'
+gem 'omniauth-google-oauth2'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -42,10 +40,8 @@ gem 'hirb'
 gem 'better_errors'
 gem 'binding_of_caller'
 #Add carrierwave for local file uploads
-gem 'carrierwave'
 
 #Add Rmagick to create different image sizes
-gem 'rmagick'
 
 #Add figaro for storing environmental variables
 gem 'figaro'

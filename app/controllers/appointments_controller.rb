@@ -30,7 +30,7 @@ class AppointmentsController < ApplicationController
   def create
     @owner_email = request.parameters["owner"]["email"]
     if Owner.email_in_database(@owner_email)
-      return my_action
+      # return my_action
     else
       @owner = Owner.new(request.parameters["owner"])
       @owner.save
@@ -107,11 +107,11 @@ class AppointmentsController < ApplicationController
     
   end  
 
-  def my_action
-    respond_to do |format|
-      format.js { render :action => "message_function" }
-    end
-  end
+  # def my_action
+  #   respond_to do |format|
+  #     format.js { render :action => "message_function" }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
