@@ -214,6 +214,8 @@ GEM
       unf_ext
     unf_ext (0.0.6)
     uuidtools (2.1.4)
+    warden (1.2.3)
+      rack (>= 1.0)
 
 PLATFORMS
   ruby

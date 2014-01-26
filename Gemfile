@@ -4,6 +4,7 @@ ruby '2.0.0'
 
 gem 'activerecord-session_store'
 # gem 'omniauth'
+
 #add to deploy to heroku
 gem 'rails_12factor', group: :production
 
