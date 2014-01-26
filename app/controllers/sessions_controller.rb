@@ -3,7 +3,12 @@ class SessionsController < ApplicationController
   def login
     id = params[:id]
     session[:sitter_id] = id
-    redirect_to home_path
+    if session[:return_to]
+      redirect_to session.delete(:return_to)
+      return true
+    else
+      redirect_to home_path
+    end
   end
 
   def all
@@ -15,7 +20,10 @@ class SessionsController < ApplicationController
     # Call from_omniauth method from Sitter model
     sitter = Sitter.from_omniauth(auth_hash, code)
 
-    redirect_to new_session_path(sitter.id) if sitter.registered?
+    if sitter.registered?
+      redirect_to new_session_path(sitter.id)
+      return true
+    end
     if sitter.persisted?
       redirect_to new_sitter_path(sitter.id), notice: "Signed in!"
     else

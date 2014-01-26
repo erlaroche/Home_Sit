@@ -16,14 +16,12 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
     <%= f.label :phone_number %><br>
     <%= f.text_field :phone_number %>
   </div>
   
+  <h2>Information for your upcoming appointment on <%= @appointment.date %>:</h2>
+
   <%= fields_for @appointment do |a| %>
   <div class="field">
     <%= a.label :address  %><br>

@@ -98,9 +98,10 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.all.find(params[:id])
     if session[:sitter_id]
       @sitter_id = session[:sitter_id]
-    # else
-      # alert('Please sign in first')
+    else
+      session[:return_to] ||= request.original_url
     end
+    binding.pry
     
   end
 
