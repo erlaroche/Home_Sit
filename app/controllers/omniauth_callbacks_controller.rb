@@ -1,9 +1,8 @@
 class OmniauthCallbacksController < ApplicationController
-require "net/http"
-require "uri"
+# require "net/http"
+# require "uri"
 
   def all
-    binding.pry
     google_code = params[:code]
     uri = URI.parse("https://accounts.google.com/o/oauth2/token")
     http = Net::HTTP.new(uri.host, uri.port)

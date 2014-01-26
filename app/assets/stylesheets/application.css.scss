@@ -10,16 +10,22 @@
  *
  *= require_self
  *= require foundation_and_overrides
+ * require font-awesome
+ 
  *= require_tree .
  */
-// .full-width-row  {
-//   width: 100%;
-//   background: image-url('blurred-background.jpg') no-repeat;
-//   min-height: 1280px;
-//   background-size: cover; //this resizes the background for any screen size
-//   padding: 6em 0em; //give it some breathing room from the top
-//   overflow: hidden;
-// }
+
+ /* @import "font-awesome"; */
+
+
+.full-width-row  {
+  width: 100%;
+  background: image-url('blurred-background.jpg') no-repeat;
+  min-height: 1280px;
+  background-size: cover; //this resizes the background for any screen size
+  padding: 6em 0em; //give it some breathing room from the top
+  overflow: hidden;
+}
 
 a:hover {
   cursor: pointer;

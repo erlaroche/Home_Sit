@@ -14,7 +14,7 @@ get '/sitters/:id/new' => 'sitters#new', as: 'new_sitter'
 get '/owners/:id/confirm' => 'owners#confirm', as: 'owner_confirm'
 
 match '/sitters/auth/:provider' => 'omniauth_callbacks#passthru', as: 'sitter_omniauth_authorize', :via => [:get, :post], :provider=>/google_oauth2/
-match '/sitters/auth/:action/callback' => 'omniauth_callbacks#(?-mix:google_oauth2)', :via => [:get, :post]
+match '/auth/:action/callback' => 'sessions#(?-mix:google_oauth2)', :via => [:get, :post]
 # get '/videos/:id' => 'videos#show', as: ‘video’
   
   resources :appointments

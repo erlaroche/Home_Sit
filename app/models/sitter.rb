@@ -1,19 +1,17 @@
 class Sitter < ActiveRecord::Base
-  require 'google/api_client'
-  require 'json'
 
   has_many :owners, :through => :appointments
   has_many :appointments, :through => :owners
 
-  def self.from_omniauth(auth, refresh_token, code)
-    where(auth.slice(:google_id)).first_or_create do |sitter|
-      sitter.google_id = auth["id"]
-      sitter.name = auth["name"]
-      sitter.email = auth["email"]
-      sitter.picture  = auth["picture"]
-      sitter.refresh_token = refresh_token
+  def self.from_omniauth(auth, code)
+    where(auth.slice(:provider, :uid)).first_or_create do |sitter|
+      sitter.provider = auth.provider
+      sitter.uid = auth.uid
+      sitter.name = auth.info.name
+      sitter.email = auth.info.email
       sitter.auth_code = code
-
+      sitter.picture = auth.info.image
+      sitter.refresh_token = auth.credentials.refresh_token
     end
   end
 
@@ -61,6 +59,14 @@ class Sitter < ActiveRecord::Base
       end
     end
     return false
+  end
+
+  def registered?
+    if self.phone_number.nil?
+      return false
+    else
+      return true
+    end
   end
 
 end
