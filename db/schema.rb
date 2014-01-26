@@ -69,7 +69,6 @@ ActiveRecord::Schema.define(version: 20140125224604) do
     t.string   "refresh_token"
     t.string   "picture"
     t.string   "linked_in"
-    t.string   "google_id"
     t.string   "email"
     t.string   "auth_code"
     t.string   "provider"

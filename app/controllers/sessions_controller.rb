@@ -15,8 +15,9 @@ class SessionsController < ApplicationController
     # Call from_omniauth method from Sitter model
     sitter = Sitter.from_omniauth(auth_hash, code)
 
+    redirect_to new_session_path(sitter.id) if sitter.registered?
     if sitter.persisted?
-      redirect_to new_session_path(sitter.id), notice: "Signed in!"
+      redirect_to new_sitter_path(sitter.id), notice: "Signed in!"
     else
       redirect_to home_path
     end
@@ -26,6 +27,8 @@ class SessionsController < ApplicationController
     session[:sitter_id] = nil
     redirect_to home_path, :notice => "Signed out!"
   end
+
+
 
   alias_method :google_oauth2, :all
 end
