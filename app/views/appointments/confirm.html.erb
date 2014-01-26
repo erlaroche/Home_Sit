@@ -1,9 +1,11 @@
 <h1> This is where you will confirm! <h1>
 <p><%= @appointment.id %></p>
 <p><%= @sitter_id %></p>
-
+<% if !@sitter_id %>
+  <p>Please Sign in before confirming</p>
+<% end %>
  <%= form_for @appointment do |f| %>
   <%= f.hidden_field :sitter_id, value: @sitter_id %>
   <%= f.hidden_field :appointment_id, value: @appointment.id %>
-  <%= f.submit "Confirm", class: "btn" %>
+  <%= f.submit "Confirm", class: "btn", :disabled => !(@sitter_id) %>
 <% end %>

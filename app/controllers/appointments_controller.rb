@@ -30,7 +30,7 @@ class AppointmentsController < ApplicationController
   def create
     @owner_email = request.parameters["owner"]["email"]
     if Owner.email_in_database(@owner_email)
-      flash.now.alert = "Please Sign In"
+      # return my_action
     else
       @owner = Owner.new(request.parameters["owner"])
       @owner.save
@@ -69,6 +69,7 @@ class AppointmentsController < ApplicationController
   # PATCH/PUT /appointments/1
   # PATCH/PUT /appointments/1.json
   def update
+    binding.pry
     @appointment = Appointment.find(params["appointment"]["appointment_id"])
     @appointment.sitter_id = params["appointment"]["sitter_id"]
     respond_to do |format|
@@ -97,9 +98,10 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.all.find(params[:id])
     if session[:sitter_id]
       @sitter_id = session[:sitter_id]
-    # else
-      # alert('Please sign in first')
+    else
+      session[:return_to] ||= request.original_url
     end
+    binding.pry
     
   end
 
@@ -107,11 +109,11 @@ class AppointmentsController < ApplicationController
     
   end  
 
-  def my_action
-    respond_to do |format|
-      format.js { render :action => "message_function" }
-    end
-  end
+  # def my_action
+  #   respond_to do |format|
+  #     format.js { render :action => "message_function" }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

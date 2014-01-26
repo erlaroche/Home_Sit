@@ -40,11 +40,14 @@ class OwnersController < ApplicationController
   # PATCH/PUT /owners/1
   # PATCH/PUT /owners/1.json
   def update
-    @appointment = Appointment.all.find(request.parameters["id"])
+    binding.pry
+    @appointment = Appointment.all.find(@owner.appointment_id)
     @appointment.address = request.parameters["appointment"]["address"]
     @appointment.city = request.parameters["appointment"]["city"]
     @appointment.description = request.parameters["appointment"]["description"]
     @appointment.save
+    @owner.registered = true
+    @owner.save
     respond_to do |format|
       if @owner.update(owner_params)
         AppointmentNotify.owner_finalize(@appointment).deliver
@@ -71,6 +74,7 @@ class OwnersController < ApplicationController
   def confirm
     @owner = Owner.all.find(params[:id])
     @appointment = Appointment.all.find(params[:appointment_id])
+
   end
 
   private
@@ -81,6 +85,6 @@ class OwnersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def owner_params
-      params.require(:owner).permit(:name, :email)
+      params.require(:owner).permit(:name, :email, :phone_number)
     end
 end
