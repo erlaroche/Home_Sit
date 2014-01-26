@@ -1,33 +1,42 @@
+    <div class="full-width header-area">
+    <div class="large-12 columns">
+      <ul class="button-group center">
+        
+        <li class="link3">
+          <h4><%= link_to "Home", home_path %></h4>
+        </li>
+
+        <li class="link1">
+          <h4><%= "Become a Sitter" %></h4>
+        </li>
+        
+
+        <li class="link2">
+          <h4><%= "Make an Appointment" %></h4>
+        </li>
 
 
-<nav class="top-bar" data-topbar>
-  <ul class="title-area">
-    <li class="name">
-      <h1><%= link_to "Home", home_path %></h1>
-    </li>
-    <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-  </ul>
+        <li class="link4">
+          <h4><%= "View Appointments" %></h4>
+        </li>
+        
+        <li class="link5">
+          <h4><%= "View Our Sitters" %></h4>
+        </li>
+      
 
-  <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <li class="active">
+        <li class="active">
+            <li>
+              <% if session[:sitter_id] %>
+               <%= link_to "Sign Out", destroy_sitter_session_path %>
 
-          <li>
-            <% if session[:sitter_id] %>
-             <%= link_to "Sign Out", destroy_sitter_session_path %>
+              <% else %>
+              <%= link_to (image_tag ("Red-signin-Long-hover-32dp.png")), '/auth/google_oauth2' %>
+                <% end %>
+            </li>
 
-            <% else %>
-            <%= link_to (image_tag ("google.png")), '/auth/google_oauth2' %>
-              <% end %>
-          </li>
-    
-      </li>
-    </ul>
-
-    <!-- Left Nav Section -->
-    <ul class="left">
-      <li></li>
-    </ul>
-  </section>
-</nav>
+        </li>
+      </ul>
+      <h2> describe the site here? </h2>
+    </div>
+    </div>

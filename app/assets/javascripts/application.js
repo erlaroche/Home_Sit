@@ -28,83 +28,32 @@ $('#confirmbutton').on('click', function() {
 
 });
 
-// buttons bounce on hover and redirect on click
-//first button
-$("#sitterbutton").hover(function(){
-  doBounce($(this), 1, '10px', 300);
-});
-
-function doBounce(element, times, distance, speed){
-  for(i = 0; i < times; i++) {
-      element.animate({marginTop: '-='+distance},speed)
-          .animate({marginTop: '+='+distance},speed);
-  } 
-}
-
-$('#sitterbutton').on('click', function () {
+$(".link1").on('click', function () {
   window.location = '/sitters/auth/google_oauth2'
 });
 
-// second button
-$("#findsitterbutton").hover(function() {
-    doBounce($(this), 1, '10px', 300);   
-});
 
-
-function doBounce(element, times, distance, speed) {
-    for(i = 0; i < times; i++) {
-        element.animate({marginTop: '-='+distance},speed)
-            .animate({marginTop: '+='+distance},speed);
-    }        
-}
-
-$('#findsitterbutton').on('click', function () {
+$('.link2').on('click', function () {
   window.location = '/appointments/new'
 });
 
-// third button
-$("#findsitterbuttonagain2").hover(function() {
-    doBounce($(this), 1, '10px', 300);   
-});
 
-
-function doBounce(element, times, distance, speed) {
-    for(i = 0; i < times; i++) {
-        element.animate({marginTop: '-='+distance},speed)
-            .animate({marginTop: '+='+distance},speed);
-    }       
-}
-
-$('#findsitterbuttonagain2').on('click', function () {
+$('.link4').on('click', function () {
   window.location = '/appointments'
 });
 
 
-// fourth button
-$("#findsitterbuttonagain").hover(function() {
-    doBounce($(this), 1, '10px', 300);   
-});
-
-
-function doBounce(element, times, distance, speed) {
-    for(i = 0; i < times; i++) {
-        element.animate({marginTop: '-='+distance},speed)
-            .animate({marginTop: '+='+distance},speed);
-    }      
-}
-
-$('#findsitterbuttonagain').on('click', function () {
+$('.link5').on('click', function () {
   window.location = '/sitters/index'
 });
 
-// jQuery for pics on homepage
-$('.pic1').on('click', function () {
-  $(this).toggle("explode");
-});
+    $('.flip').click(function(){
+        $(this).find('.card').addClass('flipped').mouseleave(function(){
+            $(this).removeClass('flipped');
+        });
+        return false;
+    });
 
-$('.pic').on('click', function () {
-  $(this).toggle("explode");
-});
 
 
 
