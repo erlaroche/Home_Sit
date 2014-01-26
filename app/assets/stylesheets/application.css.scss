@@ -131,8 +131,9 @@
   box-shadow: 0px 10px 10px 10px;
   color: #303030;
   p {
-    font-size: 20px;
-    font-family: Mystery Quest;
+    font-size: 25px;
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-weight: bold;
     color: white;
   }
 
@@ -154,12 +155,12 @@ input.button {
 
 h1 {
   text-align: center;
-  font-family: Serif;
+  font-family: 'Love Ya Like A Sister', cursive;
   font-weight: bold;
 }
 
 .example-orbit {
-  font-family: Ariel;
+  font-family: 'Love Ya Like A Sister', cursive;
   text-align: center;
   color: white;
 
@@ -167,6 +168,7 @@ h1 {
 }
 h4 {
   color: white;
+  font-family: 'Love Ya Like A Sister', cursive;
 }
 
 
@@ -206,6 +208,7 @@ article h1 {
   font-size:40px;
    color: white;
    font-weight: bold;
+   font-family: 'Love Ya Like A Sister', cursive;
 
  }
 
@@ -213,6 +216,7 @@ article h3 {
   font-size: 30px;
   color: white;
   font-weight: bold;
+  font-family: 'Love Ya Like A Sister', cursive;
 }
 
 article p {
@@ -221,6 +225,7 @@ article p {
   margin-top: 15px;
   color: white; 
   text-decoration: none; 
+  font-family: 'Love Ya Like A Sister', cursive;
 }
 
 .pic {
@@ -253,6 +258,7 @@ table.center {
 }
 
 table{
+  font-family: 'Love Ya Like A Sister', cursive;
   width: 800px;
   height: 200px;
   border-collapse: collapse;
@@ -262,5 +268,6 @@ table{
     th, td{
   background: grey;
   border: 1px solid black;
+  font-family: 'Love Ya Like A Sister', cursive;
   }
 }
