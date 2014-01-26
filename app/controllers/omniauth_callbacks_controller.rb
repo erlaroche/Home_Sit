@@ -3,7 +3,6 @@ class OmniauthCallbacksController < ApplicationController
 # require "uri"
 
   def all
-    binding.pry
 
     google_code = params[:code]
 

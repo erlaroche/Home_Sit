@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
 
   def login
-    binding.pry
     id = params[:id]
     session[:sitter_id] = id
     redirect_to home_path

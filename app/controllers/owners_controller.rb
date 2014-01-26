@@ -40,7 +40,7 @@ class OwnersController < ApplicationController
   # PATCH/PUT /owners/1
   # PATCH/PUT /owners/1.json
   def update
-    @appointment = Appointment.all.find(request.parameters["id"])
+    @appointment = Appointment.all.find(@owner.appointment_id)
     @appointment.address = request.parameters["appointment"]["address"]
     @appointment.city = request.parameters["appointment"]["city"]
     @appointment.description = request.parameters["appointment"]["description"]
