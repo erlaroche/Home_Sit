@@ -69,10 +69,6 @@
 
 
 
-
-
-
-
  .link1, .link2, .link3, .link4, .link5 {
 
  padding: 10px;
@@ -99,7 +95,17 @@
   height: 210px;
 }
 
+.row :nth-child(2) {
+  
+  width: 115px;
+  height: 115px;
+}
 
+.row :nth-child(4) {
+  
+  width: 119px;
+  height: 119px;
+}
 
 
 .full-width-row  {
