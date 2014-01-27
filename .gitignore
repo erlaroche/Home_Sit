@@ -20,3 +20,4 @@ public/uploads
 
 # Ignore environmental variables
 /config/application.yml
+.env
