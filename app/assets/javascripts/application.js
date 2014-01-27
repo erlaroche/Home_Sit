@@ -29,7 +29,7 @@ $('#confirmbutton').on('click', function() {
 });
 
 $(".link1").on('click', function () {
-  window.location = '/sitters/auth/google_oauth2'
+  window.location = '/auth/google_oauth2'
 });
 
 
