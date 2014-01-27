@@ -1,38 +1,11 @@
-
-<%= link_to home_path %>
-
-<span class="welcome_page row">
-  <span class ="sitbutt large-4 columns">
-    <button id="sitterbutton">
-      <p>Become a Sitter</p>
-    </button>    
-  </span>
-
-  <span class = "sitbutt2 large-4 columns">
-    <button id="findsitterbutton" onclick="ClickEvent()">
-      <p>Make an Appointment</p>
-    </button> 
-  </span> 
-
-
-  <span class = "sitbutt3 large-4 columns">
-    <button id="findsitterbuttonagain2">
-      <p>View Appointments</p>
-    </button> 
-  </span>
-</span>
-
-</br>
-</br>
-
 <table class = "center">
   <h1>All Our Sitters</h1>
   <thead>
     <tr>
       <th width="200">Name</th>
       <th width="150">Email</th>
+      <th width="150">LinkedIn Profile</th>
       <th width="150">Picture</th>
-      
     </tr>
   </thead>
   <tbody>
@@ -40,6 +13,7 @@
     <tr>
       <td><%= sitter.name %></td>
       <td><%= sitter.email %></td>
+      <td><%= link_to 'See my linkedIn profile', sitter.linked_in %></td>
       <td><%= link_to(image_tag(sitter.picture)) %></td>
         <% end %>
     </tr>
