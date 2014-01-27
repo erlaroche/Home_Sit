@@ -1,26 +1,5 @@
-<!-- <span class="welcome_page row">
-  <span class ="sitbutt large-4 columns">
-    <button id="sitterbutton">
-      <p>Become a Sitter</p>
-    </button>    
-  </span>
-
-  <span class = "sitbutt2 large-4 columns">
-    <button id="findsitterbutton" onclick="ClickEvent()">
-      <p>Make an Appointment</p>
-    </button> 
-  </span> 
-
-  <span class = "sitbutt3 large-4 columns">
-    <button id="findsitterbuttonagain">
-      <p>View Our Sitters</p>
-    </button> 
-  </span>
-</span>
-
-</br>
-</br> -->
-
+<div class="row">
+  <div class="large-12 columns info">
 
 <h1>All Appointments</h1>
 
@@ -30,11 +9,9 @@
       <th>Date</th>
       <th>Time start</th>
       <th>Time end</th>
-      <th>Address</th>
-      <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Zip Code</th>
+      <th>Sitter</th>
+      <th>Back up sitter</th>
     </tr>
   </thead>
 
@@ -44,16 +21,20 @@
         <td><%= appointment.date %></td>
         <td><%= appointment.time_start %></td>
         <td><%= appointment.time_end %></td>
-        <td><%= appointment.address %></td>
-        <td><%= appointment.description %></td>
-        <td><%= link_to 'Show', appointment %></td>
-        <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
-        <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= appointment.zip_code %></td>
+        <% if appointment.sitter_id.nil? %>
+        <td><%= link_to 'Reserve', confirm_path(appointment.id) %></td>
+        <% else %>
+        <td>Taken</td>
+        <% end %>
+        <% if appointment.back_up_sitter_id.nil? %>
+        <td><%= link_to 'Become back-up', back_up_confirm_path(appointment.id) %></td>
+        <% else %>
+        <td>Taken</td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Appointment', new_appointment_path %>
+</div>
+</div>

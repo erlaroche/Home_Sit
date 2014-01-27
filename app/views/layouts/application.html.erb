@@ -13,11 +13,12 @@
   </head>
 
   <body>
+    <div class="background-image"></div>
+    <div class="wrapper">
     <%= render "layouts/header" %>
-    <div class="full-width-row">
-      <%= yield %>
-    </div>
+    <%= yield %>
     <%= render "layouts/footer" %>
     <%= javascript_include_tag "application" %>
+    </div>
   </body>
 </html>

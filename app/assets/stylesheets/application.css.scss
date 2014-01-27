@@ -8,16 +8,90 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
  *= require foundation_and_overrides
- * require font-awesome
+ *= require_self
  
  *= require_tree .
  */
+.nav, .google {
+  background-color: #303333;
+  opacity: 0.9;
+  height: 63px;
+  padding-right: 0px;
+}
 
- /* @import "font-awesome"; */
+.background-image {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  
+  display: block;
+  background-image: url('charming_home2.jpg');
+  /*background-size: cover;*/
+  width: 1400px;
+  height: 1000px;
+  
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px);
+}
+
+.wrapper {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 2;
+/*  margin-left: 20px;
+  margin-right: 20px;*/
+}
+
+.main-info {
+  margin-top: 60px;
+  padding-bottom: 60px;
+  width: 100%;
+  max-width: 100%;
+  h1 {
+    float: left;
+    color: white;
+    font-weight: bold;
+    font-size: 45px;
+    -webkit-text-stroke: 2px black;
+  }
+}
+
+.info {
+  margin-top: 60px;
+  padding-bottom: 60px;
+  width: 100%;
+  max-width: 100%;
+  h1 {
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+    -webkit-text-stroke: 2px black;
+  }
+}
+
+.button-group {
+  padding-bottom: 0px;
+  div {
+    font-size: 22px;
+    color: white;
+    height: 63px;
+    padding-top: 20px;
+  }
+  li {
+    text-align: center;
+  }
+}
 
 
+.button-group div:hover {
+  font-weight: bold;
+}
 
 .flip {
   -webkit-perspective: 800;
@@ -48,6 +122,7 @@
 }
 .flip .card .front {
   position: absolute;
+  opacity: 0.7;
   z-index: 1;
     background: black;
     color: white;
@@ -55,85 +130,65 @@
 }
 .flip .card .back {
   -webkit-transform: rotatex(-180deg);
-    background: blue;
     background: white;
     color: black;
     cursor: pointer;
+    p { 
+      font-size: 30px;
+      text-align: center;
+    }
 }
 
 
-
-
  .link1, .link2, .link3, .link4, .link5 {
-
- padding: 10px;
  cursor:pointer;
  }
 
 .active {
-  padding:40px;
+  padding: 0px;
+  float: right;
+  .sign-in {
+    font-size: 0px;
+  }
+}
+
+.sign-out {
+    font-size: 22px;
+    color: white;
+    padding-top: 20px;
+  }
+
+.sign-in {
+  padding-top: 0px;
+  a { font-size: 0px;
+  }
 }
 
 .row.full-width {
   width: 100%;
-  max-width: 90%;
+  max-width: 100%;
+  float: left;
+  width: 1280;
 }
 
-.row img {
-  padding: 10px;
-  margin-bottom: 0px;
-
-}
-
-.row :nth-child(3) {
-  width: 240px;
-  height: 210px;
-}
-
-.row :nth-child(2) {
-  
-  width: 115px;
-  height: 115px;
-}
-
-.row :nth-child(4) {
-  
-  width: 119px;
-  height: 119px;
-}
-
-
-.full-width-row  {
-  width: 100%;
-  min-height: 1280px;
-  background-size: cover; //this resizes the background for any screen size
-  padding: 0em 0em; //give it some breathing room from the top
-  overflow: hidden;
-}
-
-
-#appointment_date, #appointment_zip_code {
-  background-color: transparent;
-  color: white;
-}
 
 input.button {
   color: white;
   background-color: #045FB4;
-  border: 2px solid grey;
+  border: 2px solid gray;
+}
+
+label {
+  color: white;
+  font-size: 20px;
 }
 
 h1 {
-  text-align: center;
-  font-family: 'Love Ya Like A Sister', cursive;
-  font-weight: bold;
+    color: white;
+    font-weight: bold;
+    font-size: 45px;
+    -webkit-text-stroke: 2px black;
 }
-
-h4 {
-  color: white;
-  font-family: 'Love Ya Like A Sister', cursive;
-}
-
 
 #confirmbutton {
   width: 400px;
@@ -147,7 +202,6 @@ table.center {
 }
 
 table{
-  font-family: 'Love Ya Like A Sister', cursive;
   width: 800px;
   height: 200px;
   border-collapse: collapse;
@@ -157,6 +211,21 @@ table{
     th, td{
   background: grey;
   border: 1px solid black;
-  font-family: 'Love Ya Like A Sister', cursive;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

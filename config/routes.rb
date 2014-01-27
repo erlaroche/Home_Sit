@@ -9,6 +9,7 @@ get 'sessions' => 'sessions#destroy', as: 'destroy_sitter_session'
 get 'sitters/index' => 'sitters#index', as: 'all_sitters' 
 
 get '/appointments/:id/confirm' => 'appointments#confirm', as: 'confirm'
+get '/appointments/:id/back_up_confirm' => 'appointments#back_up_confirm', as: 'back_up_confirm'
 
 get '/sitters/:id/new' => 'sitters#new', as: 'new_sitter'
 get '/owners/:id/confirm' => 'owners#confirm', as: 'owner_confirm'

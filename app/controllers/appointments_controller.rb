@@ -69,12 +69,16 @@ class AppointmentsController < ApplicationController
   # PATCH/PUT /appointments/1
   # PATCH/PUT /appointments/1.json
   def update
-    binding.pry
     @appointment = Appointment.find(params["appointment"]["appointment_id"])
-    @appointment.sitter_id = params["appointment"]["sitter_id"]
+    @sitter_id = params["appointment"]["sitter_id"]
+    if @sitter_id
+      @appointment.sitter_id = @sitter_id
+    else
+      @appointment.back_up_sitter_id = params["appointment"]["back_up_sitter_id"]
+    end
     respond_to do |format|
       if @appointment.save
-        AppointmentNotify.owner_notification(@appointment).deliver
+        AppointmentNotify.owner_notification(@appointment).deliver if @sitter_id
         format.html { redirect_to home_path, notice: 'Appointment was successfully updated.' }
         format.json { head :no_content }
       else
@@ -97,23 +101,23 @@ class AppointmentsController < ApplicationController
   def confirm
     @appointment = Appointment.all.find(params[:id])
     if session[:sitter_id]
-      @sitter_id = session[:sitter_id]
+      @sitter = Sitter.all.find(session[:sitter_id])
+      @sitter_id = @sitter.id
     else
       session[:return_to] ||= request.original_url
     end
-    binding.pry
     
   end
 
-  def sitter_confirm
-    
+  def back_up_confirm
+    @appointment = Appointment.all.find(params[:id])
+    if session[:sitter_id]
+      @sitter = Sitter.all.find(session[:sitter_id])
+      @sitter_id = @sitter.id
+    else
+      session[:return_to] ||= request.original_url
+    end
   end  
-
-  # def my_action
-  #   respond_to do |format|
-  #     format.js { render :action => "message_function" }
-  #   end
-  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -28,6 +28,11 @@ $('#confirmbutton').on('click', function() {
 
 });
 
+$(".link3").on('click', function () {
+  window.location = '/'
+});
+
+
 $(".link1").on('click', function () {
   window.location = '/auth/google_oauth2'
 });

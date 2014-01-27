@@ -1,43 +1,37 @@
     <div class="full-width header-area">
-    <div class="large-12 columns">
-      <ul class="button-group center">
+    <div class="large-10 columns nav">
+      <ul class="button-group">
         
-        <li class="link3">
-          <h4><%= link_to "Home", home_path %></h4>
+        <li class="link3" style="width: 85px">
+          <div>Home</div>
         </li>
 
-        <li class="link1">
-          <h4><%= "Become a Sitter" %></h4>
-        </li>
-        
-
-        <li class="link2">
-          <h4><%= "Make an Appointment" %></h4>
-        </li>
-
-
-        <li class="link4">
-          <h4><%= "View Appointments" %></h4>
+        <li class="link1" style="width: 210px">
+          <div>Become a Sitter</div>
         </li>
         
-        <li class="link5">
-          <h4><%= "View Our Sitters" %></h4>
+
+        <li class="link2" style="width: 280px">
+          <div>Make an Appointment</div>
         </li>
-      
 
-        <li class="active">
-            <li>
-              <% if session[:sitter_id] %>
-               <%= link_to "Sign Out", destroy_sitter_session_path %>
 
-              <% else %>
-              <%= link_to (image_tag ("Red-signin-Long-hover-32dp.png")), '/auth/google_oauth2' %>
-                <% end %>
-            </li>
-
+        <li class="link4" style="width: 255px">
+          <div>View Appointments</div>
+        </li>
+        
+        <li class="link5" style="width: 220px">
+          <div>View Our Sitters</div>
         </li>
       </ul>
-   <!--    <br><br> -->
-    
+      </div>
+
+      <div class="large-2 columns google">
+          <% if session[:sitter_id] %>
+            <div class="sign-out"><%= link_to "Sign Out", destroy_sitter_session_path %></div>
+          <% else %>
+            <div class="sign-in"><%= link_to (image_tag ("Red-signin-Long-hover-32dp.png")), '/auth/google_oauth2' %></div>
+          <% end %>
+
     </div>
     </div>
