@@ -23,33 +23,6 @@
   margin-top: -5px;
 }
 
-/*.background-image {
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: 1;
-  
-  display: block;
-  background-image: url('charming_home2.jpg');
-  background-size: cover;
-  width: 1400px;
-  height: 1000px;
-  
-  -webkit-filter: blur(2px);
-  -moz-filter: blur(2px);
-  -o-filter: blur(2px);
-  -ms-filter: blur(2px);
-  filter: blur(2px);
-}*/
-
-/*.wrapper {
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: 2;
-  margin-left: 20px;
-  margin-right: 20px;
-}*/
 .pics {
   margin-bottom: 75px;
 }
@@ -140,7 +113,7 @@
   position: absolute;
   -webkit-backface-visibility: hidden ;
   z-index: 2;
-    font-family: Georgia;
+    font-family: 'Kreon', serif;
     font-size: 3em;
     text-align: center;
     line-height: 200px;
