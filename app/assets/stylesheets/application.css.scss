@@ -13,7 +13,7 @@
  
  *= require_tree .
  */
-.jex {
+.nav, .google {
   background-color: #303333;
   opacity: 0.9;
   height: 63px;
@@ -93,10 +93,6 @@
   font-weight: bold;
 }
 
-.button-group.google {
-  float:right;
-}
-
 .flip {
   -webkit-perspective: 800;
    width: 400px;
@@ -151,11 +147,22 @@
 .active {
   padding: 0px;
   float: right;
-  a {
+  .sign-in {
     font-size: 0px;
   }
 }
 
+.sign-out {
+    font-size: 22px;
+    color: white;
+    padding-top: 20px;
+  }
+
+.sign-in {
+  padding-top: 0px;
+  a { font-size: 0px;
+  }
+}
 
 .row.full-width {
   width: 100%;

@@ -69,7 +69,6 @@ class AppointmentsController < ApplicationController
   # PATCH/PUT /appointments/1
   # PATCH/PUT /appointments/1.json
   def update
-    binding.pry
     @appointment = Appointment.find(params["appointment"]["appointment_id"])
     @sitter_id = params["appointment"]["sitter_id"]
     if @sitter_id

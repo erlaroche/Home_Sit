@@ -1,5 +1,5 @@
     <div class="full-width header-area">
-    <div class="large-10 columns jex">
+    <div class="large-10 columns nav">
       <ul class="button-group">
         
         <li class="link3" style="width: 85px">
@@ -26,15 +26,12 @@
       </ul>
       </div>
 
-      <div class="large-2 columns jex">
-      <ul class="button-group google">
-        <li class="active">
+      <div class="large-2 columns google">
           <% if session[:sitter_id] %>
-            <%= link_to "Sign Out", destroy_sitter_session_path %>
+            <div class="sign-out"><%= link_to "Sign Out", destroy_sitter_session_path %></div>
           <% else %>
-            <%= link_to (image_tag ("Red-signin-Long-hover-32dp.png")), '/auth/google_oauth2' %>
+            <div class="sign-in"><%= link_to (image_tag ("Red-signin-Long-hover-32dp.png")), '/auth/google_oauth2' %></div>
           <% end %>
-        </li>
-      </ul>
+
     </div>
     </div>
