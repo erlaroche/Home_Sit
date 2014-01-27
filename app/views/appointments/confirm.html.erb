@@ -1,7 +1,7 @@
-<h1> This is where you will confirm! <h1>
-<p><%= @appointment.id %></p>
-<p><%= @sitter_id %></p>
-<% if !@sitter_id %>
+<h1>Appointment Confirmation<h1>
+<% if @sitter_id %>
+  <h3><%= @sitter.name %>, are you sure you want to sit between <%=@appointment.time_start%> and <%= @appointment.time_end%>?</h3>
+<% else %>
   <p>Please Sign in before confirming</p>
 <% end %>
  <%= form_for @appointment do |f| %>
