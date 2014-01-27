@@ -13,10 +13,18 @@
  
  *= require_tree .
  */
+body {
+  font-family: 'Krona One', sans-serif;
+}
 .nav, .google {
   /*background-color: #303333;*/
   height: 63px;
   padding-right: 0px;
+}
+
+h1{
+  text-align: center;
+  font-family: 'Krona One', sans-serif;
 }
 
 .line {
@@ -51,11 +59,14 @@
   padding-bottom: 60px;
   width: 100%;
   max-width: 100%;
+  text-align: center;
+  font-family: 'Krona One', sans-serif;
   h1 {
-    float: left;
     color: white;
+    text-align: center;
     font-weight: bold;
     font-size: 45px;
+    font-family: 'Krona One', sans-serif;
     -webkit-text-stroke: 2px black;
   }
 }
@@ -64,11 +75,13 @@
   margin-top: 60px;
   padding-bottom: 60px;
   width: 100%;
+  font-family: 'Krona One', sans-serif;
   max-width: 100%;
   h1 {
     color: white;
     font-weight: bold;
     font-size: 40px;
+    font-family: 'Krona One', sans-serif;
     -webkit-text-stroke: 2px black;
   }
 }
@@ -77,17 +90,20 @@
   padding-bottom: 0px;
   div {
     font-size: 22px;
+    font-family: 'Krona One', sans-serif;
     color: black;
     height: 63px;
     padding-top: 20px;
   }
   li {
+    font-family: 'Krona One', sans-serif;
     text-align: center;
   }
 }
 
 
 .button-group div:hover {
+  font-family: 'Krona One', sans-serif;
   font-weight: bold;
 }
 
@@ -100,6 +116,7 @@
 }
 .flip .card.flipped {
   -webkit-transform: rotatex(-180deg);
+
 }
 .flip .card {
   width: 100%;
@@ -113,13 +130,14 @@
   position: absolute;
   -webkit-backface-visibility: hidden ;
   z-index: 2;
-    font-family: 'Kreon', serif;
+    font-family: 'Krona One', sans-serif;
     font-size: 3em;
     text-align: center;
     line-height: 200px;
 }
 .flip .card .front {
   position: absolute;
+  text-align: auto;
   opacity: 0.7;
   z-index: 1;
     background: black;
@@ -133,6 +151,7 @@
     cursor: pointer;
     p { 
       font-size: 30px;
+      font-family: 'Krona One', sans-serif;
       text-align: center;
     }
 }
@@ -163,6 +182,7 @@
 }
 
 .row.full-width {
+  text-align: center;
   width: 100%;
   max-width: 100%;
   float: left;
