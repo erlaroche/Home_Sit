@@ -13,9 +13,12 @@
   </head>
 
   <body>
+    <div class="background-image"></div>
+    <div class="wrapper">
     <%= render "layouts/header" %>
-      <%= yield %>
+    <%= yield %>
     <%= render "layouts/footer" %>
     <%= javascript_include_tag "application" %>
+    </div>
   </body>
 </html>
