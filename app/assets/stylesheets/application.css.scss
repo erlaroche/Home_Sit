@@ -66,12 +66,12 @@
 
  .link1, .link2, .link3, .link4, .link5 {
 
- padding: 10px;
+ padding: 2px;
  cursor:pointer;
  }
 
 .active {
-  padding:40px;
+  padding: 0px;
 }
 
 .row.full-width {
@@ -160,3 +160,36 @@ table{
   font-family: 'Love Ya Like A Sister', cursive;
   }
 }
+
+.myButton {
+  background-color:#107B90;
+  border-radius:6px;
+  border: 3px solid #979797;
+  cursor:pointer;
+  color:#D0D0D0;
+  font-family:arial;
+  font-size:15px;
+  font-weight:bold;
+}
+
+.myButton:hover {
+  background-color:#1083ad;
+}
+/*.myButton:active {
+  position:relative;
+  top:1px;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+

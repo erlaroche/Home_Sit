@@ -3,41 +3,36 @@
       <ul class="button-group center">
         
         <li class="link3">
-          <h4><%= link_to "Home", home_path %></h4>
+          <button class="myButton">Home</button>
         </li>
 
         <li class="link1">
-          <h4><%= "Become a Sitter" %></h4>
+          <button class="myButton">Become a Sitter</button>
         </li>
         
 
         <li class="link2">
-          <h4><%= "Make an Appointment" %></h4>
+          <button class="myButton">Make an Appointment</button>
         </li>
 
 
         <li class="link4">
-          <h4><%= "View Appointments" %></h4>
+          <button class="myButton">View Appointments</button>
         </li>
         
         <li class="link5">
-          <h4><%= "View Our Sitters" %></h4>
+          <button class="myButton">View Our Sitters</button>
         </li>
       
 
         <li class="active">
-            <li>
               <% if session[:sitter_id] %>
-               <%= link_to "Sign Out", destroy_sitter_session_path %>
+               <h4><%= link_to "Sign Out", destroy_sitter_session_path %></h4>
 
               <% else %>
               <%= link_to (image_tag ("Red-signin-Long-hover-32dp.png")), '/auth/google_oauth2' %>
                 <% end %>
-            </li>
-
         </li>
       </ul>
-   <!--    <br><br> -->
-    
     </div>
     </div>

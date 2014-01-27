@@ -1,5 +1,4 @@
 class SittersController < ApplicationController
-  
 
   def new
     @sitter = Sitter.all.find(params[:id])
