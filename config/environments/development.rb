@@ -37,7 +37,6 @@ HouseSitter::Application.configure do
     :port => 587,
     :user_name => ENV["EMAIL_ACCOUNT"],
     :password => ENV["EMAIL_PASSWORD"],
-    :authentification => "plain",
-    :enable_starttls_auto => true
+    :authentification => "plain"
   }
 end
