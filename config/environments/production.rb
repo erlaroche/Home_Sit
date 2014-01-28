@@ -89,6 +89,6 @@ HouseSitter::Application.configure do
     :user_name => ENV["EMAIL_ACCOUNT"],
     :password => ENV["EMAIL_PASSWORD"],
     :authentification => "plain",
-    :enable_starttls_auto => false
+    :enable_starttls_auto => true
   }
 end
