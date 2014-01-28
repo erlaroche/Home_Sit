@@ -16,7 +16,7 @@ class Sitter < ActiveRecord::Base
   end
 
   def calendar_query(time_start, time_end)
-    client = Service.new
+    client = Service.new(:application_name => 'sit4u', :application_version => '1.0')
     calendar = client.discovered_api('calendar', 'v3')
     client.authorization.client_id = ENV["GOOGLE_CLIENT_ID"]
     client.authorization.client_secret = ENV["GOOGLE_CLIENT_SECRET"]
@@ -34,7 +34,6 @@ class Sitter < ActiveRecord::Base
       }),
       headers: {'Content-Type' => 'application/json'}
       }) 
-    # Might always return busy!
     return result.data.calendars["#{self.email}"].to_hash["busy"]
   end
 
