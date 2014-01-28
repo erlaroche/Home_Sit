@@ -1,44 +1,55 @@
-<%= form_for(@owner) do |f| %>
-  <% if @owner.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@owner.errors.count, "error") %> prohibited this owner from being saved:</h2>
+<div class="row">
+  <div class="large-4 medium-6 small-12 columns small-centered">
+    <%= form_for(@owner) do |f| %>
+      <% if @owner.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@owner.errors.count, "error") %> prohibited this owner from being saved:</h2>
 
-      <ul>
-      <% @owner.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+          <ul>
+          <% @owner.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
+
+      <div class="field">
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.label :phone_number %><br>
+        <%= f.text_field :phone_number %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :phone_number %><br>
-    <%= f.text_field :phone_number %>
-  </div>
-  
-  <h2>Information for your upcoming appointment on <%= @appointment.date %>:</h2>
-
-  <%= fields_for @appointment do |a| %>
-  <div class="field">
-    <%= a.label :address  %><br>
-    <%= a.text_field :address %>
-  </div>
-  <div class="field">
-    <%= a.label :city  %><br>
-    <%= a.text_field :city %>
+  <div class="row">
+    <div class="large-10 medium-12 small-12 columns small-centered">
+      <h2>Information for your upcoming appointment on <%= @appointment.date %>:</h2>
+    </div>
   </div>
 
-  <div class="field">
-    <%= a.label :description  %><br>
-    <%= a.text_field :description %>
-  </div>
-  <% end %>
+<div class="row">
+  <div class="large-4 medium-6 small-12 columns small-centered">
+    <%= fields_for @appointment do |a| %>
+      <div class="field">
+        <%= a.label :address  %><br>
+        <%= a.text_field :address %>
+      </div>
+      <div class="field">
+        <%= a.label :city  %><br>
+        <%= a.text_field :city %>
+      </div>
 
-  <div class="actions">
-    <%= f.submit "Confirm", :class => "button" %>
+      <div class="field">
+        <%= a.label :description  %><br>
+        <%= a.text_field :description %>
+      </div>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit "Confirm", :class => "button" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
