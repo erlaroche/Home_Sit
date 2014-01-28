@@ -15,7 +15,7 @@ class Owner < ActiveRecord::Base
     return status
   end
 
-  def register(params)
+  def self.register(params)
     @owner_email = params["owner"]["email"]
     if Owner.email_in_database(@owner_email)
       @owner = Owner.find_by(:email => "#{@owner_email}")
