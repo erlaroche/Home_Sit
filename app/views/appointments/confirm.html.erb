@@ -1,4 +1,6 @@
 <h1>Appointment Confirmation<h1>
+<div class="row">
+  <div class="large-4 medium-6 large-12 columns small-center">
 <% if @sitter_id %>
   <h3><%= @sitter.name %>, are you sure you want to sit between <%=@appointment.time_start%> and <%= @appointment.time_end%>?</h3>
 <% else %>
@@ -9,3 +11,5 @@
   <%= f.hidden_field :appointment_id, value: @appointment.id %>
   <%= f.submit "Confirm", class: "btn", :disabled => !(@sitter_id) %>
 <% end %>
+</div>
+</div>
