@@ -2,7 +2,7 @@
 <% if @sitter_id %>
   <h3><%= @sitter.name %>, are you sure you want to sit between <%=@appointment.time_start%> and <%= @appointment.time_end%>?</h3>
 <% else %>
-  <p>Please Sign in before confirming</p>
+  <h3>Please Sign in before confirming</h3>
 <% end %>
  <%= form_for @appointment do |f| %>
   <%= f.hidden_field :sitter_id, value: @sitter_id %>
