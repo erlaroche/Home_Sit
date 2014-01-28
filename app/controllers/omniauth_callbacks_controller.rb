@@ -7,7 +7,7 @@ class OmniauthCallbacksController < ApplicationController
     uri = URI.parse("https://accounts.google.com/o/oauth2/token")
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
-    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    http.verify_mode = OpenSSL::SSL::VERIFY_PEER
 
     request = Net::HTTP::Post.new(uri.request_uri)
     # Need to include scopes here ma?
