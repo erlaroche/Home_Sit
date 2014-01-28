@@ -9,7 +9,7 @@
  <%= form_for @appointment do |f| %>
   <%= f.hidden_field :sitter_id, value: @sitter_id %>
   <%= f.hidden_field :appointment_id, value: @appointment.id %>
-  <%= f.submit "Confirm", class: "btn", :disabled => !(@sitter_id) %>
+  <%= f.submit "Confirm", :class => "button", :disabled => !(@sitter_id) %>
 <% end %>
 </div>
 </div>
