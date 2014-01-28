@@ -17,6 +17,7 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments/new
   def new
+    # If owner signed in, use session_id
     @owner = Owner.new
     @appointment = Appointment.new
   end
@@ -28,18 +29,10 @@ class AppointmentsController < ApplicationController
   # POST /appointments
   # POST /appointments.json
   def create
-    @owner_email = request.parameters["owner"]["email"]
-    if Owner.email_in_database(@owner_email)
-      # return my_action
-    else
-      @owner = Owner.new(request.parameters["owner"])
-      @owner.save
-    end
+    @owner = Owner.register(request.parameters)
     @appointment = Appointment.new(appointment_params)
     @appointment.save
 
-    @owner = Owner.find_by(:email => "#{@owner_email}")
-    
     @appointment.owner_id = @owner.id
     @owner.appointment_id = @appointment.id
         
@@ -48,6 +41,7 @@ class AppointmentsController < ApplicationController
     time_end = @appointment.time_end_convert
 
     # Does this need to be destroyed after I use it?
+    #
     session[:available] = Sitter.any_available(time_start, time_end)
 
     @emails = []

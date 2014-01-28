@@ -11,7 +11,7 @@ class OmniauthCallbacksController < ApplicationController
 
     request = Net::HTTP::Post.new(uri.request_uri)
     # Need to include scopes here ma?
-    request.set_form_data({"client_id" => "527876756740-5ei7igtcd6t4s8drtqjsitfdjqh4k2gq.apps.googleusercontent.com", "client_secret" => "xCq6k51ID50LgvL4rc-kuccp", "code" => google_code, "grant_type" => "authorization_code", "redirect_uri" => "http://localhost:3000/sitters/auth/google_oauth2/callback"})
+    request.set_form_data({"client_id" => "527876756740-5ei7igtcd6t4s8drtqjsitfdjqh4k2gq.apps.googleusercontent.com", "client_secret" => "xCq6k51ID50LgvL4rc-kuccp", "code" => google_code, "grant_type" => "authorization_code", "redirect_uri" => "http://sit4u.herokuapp.com/sitters/auth/google_oauth2/callback"})
 
     # Tweak headers, removing this will default to application/x-www-form-urlencoded 
     request["Content-Type"] = "application/x-www-form-urlencoded; utf-8"
@@ -36,7 +36,7 @@ class OmniauthCallbacksController < ApplicationController
     client.authorization.client_id = ENV["GOOGLE_CLIENT_ID"]
     client.authorization.client_secret = ENV["GOOGLE_CLIENT_SECRET"]
     client.authorization.scope = 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile'
-    client.authorization.redirect_uri = 'http://localhost:3000/sitters/auth/google_oauth2/callback'
+    client.authorization.redirect_uri = 'http://sit4u.herokuapp.com/sitters/auth/google_oauth2/callback'
     if refresh_token
         client.authorization.refresh_token = refresh_token
     else

@@ -15,4 +15,16 @@ class Owner < ActiveRecord::Base
     return status
   end
 
+  def register(params)
+    @owner_email = params["owner"]["email"]
+    if Owner.email_in_database(@owner_email)
+      @owner = Owner.find_by(:email => "#{@owner_email}")
+      # return my_action
+    else
+      @owner = Owner.new(params["owner"])
+      @owner.save
+    end
+    return @owner
+  end
+
 end
