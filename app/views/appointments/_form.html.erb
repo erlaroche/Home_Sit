@@ -13,20 +13,20 @@
 
   
   <div class="field">
-    <%= f.label :date %><br>
+    
     <%= f.date_field :date, :autofocus => true %>
   </div>
   <div class="field">
-    <%= f.label :time_start %><br>
+    
     <%= f.select(:time_start, @times_array) %>
   </div>
   <div class="field">
-    <%= f.label :time_end %><br>
+    
     <%= f.select(:time_end, @times_array) %>
   </div>
 
   <div class="field">
-    <%= f.label :zip_code %><br>
+    
     <%= f.text_field :zip_code, :maxlength => 5 %>
   </div>
 
@@ -34,7 +34,7 @@
 
   <%= fields_for @owner do |o| %>
   <div class="field">
-    <%= o.label :email %><br>
+    
     <%= o.text_field :email %>
   </div>
   <% end %>

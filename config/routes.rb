@@ -4,14 +4,14 @@ HouseSitter::Application.routes.draw do
 
 #show all sitters
 get 'sessions/:id' => 'sessions#login', as: 'new_session'
-
 get 'sessions' => 'sessions#destroy', as: 'destroy_sitter_session' 
+
 get 'sitters/index' => 'sitters#index', as: 'all_sitters' 
+get '/sitters/:id/new' => 'sitters#new', as: 'new_sitter'
 
 get '/appointments/:id/confirm' => 'appointments#confirm', as: 'confirm'
 get '/appointments/:id/back_up_confirm' => 'appointments#back_up_confirm', as: 'back_up_confirm'
 
-get '/sitters/:id/new' => 'sitters#new', as: 'new_sitter'
 get '/owners/:id/confirm' => 'owners#confirm', as: 'owner_confirm'
 
 match '/sitters/auth/:provider' => 'omniauth_callbacks#passthru', as: 'sitter_omniauth_authorize', :via => [:get, :post], :provider=>/google_oauth2/
