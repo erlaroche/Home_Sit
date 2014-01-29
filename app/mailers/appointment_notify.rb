@@ -11,7 +11,7 @@ class AppointmentNotify < ActionMailer::Base
     users.each do |email| 
       @all_emails << email
     end
-    mail(to: @all_emails, subject: 'WAAZZZUUPPP Bro from HomeSit')
+    mail(to: @all_emails, subject: 'Check out this new Sit4U opportunity!')
   end
 
   def owner_notification(appointment)
