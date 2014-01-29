@@ -34,7 +34,7 @@ $(".link3").on('click', function () {
 
 
 $(".link1").on('click', function () {
-  window.location = '/auth/google_oauth2'
+  window.location = 'http://sit4u.herokuapp.com/auth/google_oauth2'
 });
 
 
