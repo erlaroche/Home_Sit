@@ -14,13 +14,35 @@
  *= require_tree .
  */
 
+
+
+hr {
+  color: black;
+  background-color: black;
+  height: 2px;
+  border: 0px;
+}
+
+ .steps {
+  margin-top: 45px;
+  h1 {
+    font-family: sans-serif;
+    color: black;
+  }
+ }
+
 body {
   font-family: 'Krona One', sans-serif;
+  background-color: #ECEBE8;
 }
-.nav, .google {
-  height: 63px;
-  padding-right: 0px;
-  font-family: 'Krona One', sans-serif;
+.nav {
+  background-color: #ECEBE8;
+  padding-left: 0px;
+  .google {
+    background-color: #ECEBE8;
+    height: 63px;
+    padding-right: 0px;
+  }
 }
 
 h1, h2{
@@ -66,36 +88,64 @@ thead, tbody, tr, td, th {
   width: 240px;
   height: 210px;
 }
+.tagline {
+  padding: 0px;
+}
 
+.info-bar {
+  margin-bottom: 40px;
+}
 .main-info {
-  margin-top: 60px;
-  padding-bottom: 60px;
+  margin-top: 15px;
+  padding-bottom: 80px;
   width: 100%;
   max-width: 100%;
   text-align: center;
   font-family: 'Krona One', sans-serif;
-  h1 {
-    color: white;
+  background-color: #2A8CB2;
+  h2 {
+    padding-top: 30px;
+    color: #A4A4A4;
     text-align: center;
     font-weight: bold;
     font-size: 45px;
     font-family: 'Krona One', sans-serif;
-    -webkit-text-stroke: 2px black;
+/*    -webkit-text-stroke: 2px black;
+*/  }
+}
+
+.field {
+  padding-top: 20px;
+}
+
+.labels {
+  padding-top: 40px;
+  h3 {
+    float: right;
+    padding-left: 100px;
+    padding-bottom: 25px;
   }
 }
 
+#end_time {
+  padding-top: 7px;
+}
+#zip_code {
+  padding-top: 8px;
+}
+
 .info {
-  margin-top: 60px;
-  padding-bottom: 60px;
-  width: 100%;
-  font-family: 'Krona One', sans-serif;
-  max-width: 100%;
+  /*margin-top: 60px;*/
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: sans-serif;
+  padding: 0px;
   h1 {
-    color: white;
+    color: #A4A4A4;
     font-weight: bold;
     font-size: 40px;
-    font-family: 'Krona One', sans-serif;
-    -webkit-text-stroke: 2px black;
+    font-family: sans-serif;
+    /*-webkit-text-stroke: 2px black;*/
   }
 }
 
@@ -125,7 +175,7 @@ thead, tbody, tr, td, th {
    width: 400px;
    height: 200px;
     position: relative;
-    margin: 50px auto;
+    margin: 20px auto;
 }
 .flip .card.flipped {
   -webkit-transform: rotatex(-180deg);
@@ -151,15 +201,23 @@ thead, tbody, tr, td, th {
 .flip .card .front {
   position: absolute;
   text-align: auto;
-  opacity: 0.7;
+  /*opacity: 0.7;*/
   z-index: 1;
-    background: black;
+    background: #ECEBE8;
     color: white;
     cursor: pointer;
+    background-color: #ECEBE8;
+    font-weight: bold;
+    font-size: 45px;
+      font-family: sans-serif;
+      /*-webkit-text-stroke: 2px black;*/
+      color: #A4A4A4;
+
+    
 }
 .flip .card .back {
   -webkit-transform: rotatex(-180deg);
-    background: white;
+    background: #ECEBE8;
     color: black;
     cursor: pointer;
     text-align: center;
@@ -184,6 +242,13 @@ thead, tbody, tr, td, th {
   }
 }
 
+.link3 {
+  padding-right: 5px;
+  padding-left: 5px;
+    div {
+      padding: 0px;
+    }
+}
 .sign-out {
     font-size: 22px;
     font-family: 'Krona One', sans-serif;
@@ -222,7 +287,7 @@ h1 {
     font-family: 'Krona One', sans-serif;
     font-weight: bold;
     font-size: 45px;
-    -webkit-text-stroke: 2px black;
+    /*-webkit-text-stroke: 2px black;*/
 }
 
 #confirmbutton {
