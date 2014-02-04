@@ -3,6 +3,8 @@ class Appointment < ActiveRecord::Base
   belongs_to :owner
   belongs_to :sitter
 
+  validates_presence_of :date, :time_start, :time_end, :zip_code
+
   def time_start_convert
     if self.time_start.slice(-2, 2) == "PM"
       if self.time_start.slice(0,2) == "12"

@@ -12,16 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
-//= require_tree ../../../vendor/assets/javascripts
-//= require appointments
-//= require omniauth_callbacks
-//= require owners
-//= require services
-//= require sitters
-//= require sticky-footer
 
-$(function(){ $(document).foundation(); });
+//= require_tree .
+
+
+// $(function(){ $(document).foundation(); });
 
 $('#confirmbutton').on('click', function() {
   ;

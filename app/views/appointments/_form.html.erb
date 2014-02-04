@@ -1,5 +1,5 @@
-<%= form_for @appointment do |f| %>
-  <% if @appointment.errors.any? %>
+<%= form_for @appointment, :validate => true do |f| %>
+  <% if @appointment.errors.any? || @owner.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
 
@@ -7,40 +7,37 @@
       <% @appointment.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
+        <% @owner.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
   
   <div class="field">
-    
     <%= f.date_field :date, :autofocus => true %>
   </div>
-  <div class="field">
-    
+  <div class="field time_field">
     <%= f.select(:time_start, @times_array) %>
   </div>
-  <div class="field">
-    
+  <div class="field time_field">
     <%= f.select(:time_end, @times_array) %>
+  <span id="time_errors"></span>
   </div>
-
-  <div class="field">
-    
+  <div class="field zip_field">
     <%= f.text_field :zip_code, :maxlength => 5 %>
+    <span id="zip_code_errors"></span>
   </div>
 
-
-
-  <%= fields_for @owner do |o| %>
-  <div class="field">
-    
-    <%= o.text_field :email %>
-  </div>
+  <%= fields_for @owner, :validate => true do |o| %>
+    <div class="field">
+      <%= o.text_field :email %>
+    </div>
   <% end %>
 
   <!-- Get owner ID somehow!! -->
-  <div class="actions">
+  <div class="appointment_submit">
     <%= f.submit %>
   </div>
 <% end %>
