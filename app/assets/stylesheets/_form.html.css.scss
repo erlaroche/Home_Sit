@@ -1,0 +1,50 @@
+.field { 
+  display: inline-block;
+  position: relative;
+  padding-left: 20px;
+  padding-top: 0px;
+
+  input, select {
+    width: 200px;
+    float: right;
+    margin-left: 20px;
+    border: 2px solid #ACABAD;
+  }
+  h3 {
+    width: 130px;
+    float: left;
+  }
+
+}
+
+.date_field {
+  padding-top: 20px;
+}
+
+.form_box {
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 400px;
+  height: 420px;
+  background-color: #ACABAD;
+  margin-left: 50px;
+}
+
+.appointment_submit {
+  float: left;
+  padding-bottom: 20px;
+  padding-left: 100px;
+}
+
+
+.error {
+  width: 400px;
+  position: absolute;
+  z-index: 2;
+  text-align: center;
+  color: red;
+}
+
+button {
+  width: 200px;
+}

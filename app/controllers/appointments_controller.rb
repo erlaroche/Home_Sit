@@ -31,33 +31,33 @@ class AppointmentsController < ApplicationController
   def create
     @owner = Owner.register(request.parameters)
     @appointment = Appointment.new(appointment_params)
-    @appointment.save
+    if @appointment.save && @owner.save
+      @appointment.owner_id = @owner.id
+      @owner.appointment_id = @appointment.id
+          
+      @owner.save
+      time_start = @appointment.time_start_convert
+      time_end = @appointment.time_end_convert
 
-    @appointment.owner_id = @owner.id
-    @owner.appointment_id = @appointment.id
-        
-    @owner.save
-    time_start = @appointment.time_start_convert
-    time_end = @appointment.time_end_convert
+      # Does this need to be destroyed after I use it?
+      session[:available] = Sitter.any_available(time_start, time_end)
 
-    # Does this need to be destroyed after I use it?
-    #
-    session[:available] = Sitter.any_available(time_start, time_end)
-
-    @emails = []
-    (session[:available]).each do |key, value|
-    @emails << session[:available][key]["email"]
-    end
-    respond_to do |format|
-      if @appointment.save
-        AppointmentNotify.new_appointment(@emails, @appointment).deliver
+      @emails = []
+      (session[:available]).each do |key, value|
+        @emails << session[:available][key]["email"]
+      end
+      AppointmentNotify.new_appointment(@emails, @appointment).deliver
+      respond_to do |format|
         format.html { redirect_to home_path, notice: 'Appointment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @appointment }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @appointment.errors, status: :unprocessable_entity }
       end
-    end 
+    else
+      get_times
+      respond_to do |format|
+      format.html { render action: 'new' }
+      format.json { render json: @appointment.errors, status: :unprocessable_entity }
+    end
+  end
   end
 
   # PATCH/PUT /appointments/1

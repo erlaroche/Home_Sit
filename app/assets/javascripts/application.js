@@ -12,21 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
-//= require_tree ../../../vendor/assets/javascripts
-//= require appointments
-//= require omniauth_callbacks
-//= require owners
-//= require services
-//= require sitters
-//= require sticky-footer
 
-$(function(){ $(document).foundation(); });
-
-$('#confirmbutton').on('click', function() {
-  ;
-
-});
+//= require_tree .
 
 $(".link3").on('click', function () {
   window.location = '/'
@@ -34,7 +21,7 @@ $(".link3").on('click', function () {
 
 
 $(".link1").on('click', function () {
-  window.location = '/auth/google_oauth2'
+  window.location = 'http://sit4u.herokuapp.com/auth/google_oauth2'
 });
 
 
@@ -52,12 +39,12 @@ $('.link5').on('click', function () {
   window.location = '/sitters/index'
 });
 
-    $('.flip').click(function(){
-        $(this).find('.card').addClass('flipped').mouseleave(function(){
-            $(this).removeClass('flipped');
-        });
-        return false;
+$('.flip').click(function(){
+    $(this).find('.card').addClass('flipped').mouseleave(function(){
+        $(this).removeClass('flipped');
     });
+    return false;
+});
 
 
 
