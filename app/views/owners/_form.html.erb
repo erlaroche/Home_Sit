@@ -5,11 +5,11 @@
         <div id="error_explanation">
           <h2><%= pluralize(@owner.errors.count, "error") %> prohibited this owner from being saved:</h2>
 
-          
+          <ul>
           <% @owner.errors.full_messages.each do |msg| %>
-            <h5><%= msg %></h5>
+            <li><%= msg %></li>
           <% end %>
-          
+          </ul>
         </div>
       <% end %>
 
