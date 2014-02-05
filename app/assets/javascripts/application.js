@@ -15,14 +15,6 @@
 
 //= require_tree .
 
-
-// $(function(){ $(document).foundation(); });
-
-$('#confirmbutton').on('click', function() {
-  ;
-
-});
-
 $(".link3").on('click', function () {
   window.location = '/'
 });
@@ -47,12 +39,12 @@ $('.link5').on('click', function () {
   window.location = '/sitters/index'
 });
 
-    $('.flip').click(function(){
-        $(this).find('.card').addClass('flipped').mouseleave(function(){
-            $(this).removeClass('flipped');
-        });
-        return false;
+$('.flip').click(function(){
+    $(this).find('.card').addClass('flipped').mouseleave(function(){
+        $(this).removeClass('flipped');
     });
+    return false;
+});
 
 
 
