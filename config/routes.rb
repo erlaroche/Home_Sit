@@ -11,6 +11,7 @@ get '/sitters/:id/new' => 'sitters#new', as: 'new_sitter'
 
 get '/appointments/:id/confirm' => 'appointments#confirm', as: 'confirm'
 get '/appointments/:id/back_up_confirm' => 'appointments#back_up_confirm', as: 'back_up_confirm'
+post '/appointments/get_pictures' => 'appointments#get_pictures'
 
 get '/owners/:id/confirm' => 'owners#confirm', as: 'owner_confirm'
 

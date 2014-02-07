@@ -19,6 +19,7 @@ class AppointmentsController < ApplicationController
   # GET /appointments/new
   def new
     # If owner signed in, use session_id
+    @available = []
     @owner = Owner.new
     @appointment = Appointment.new
   end
@@ -35,22 +36,22 @@ class AppointmentsController < ApplicationController
     if @appointment.save && @owner.save
       @appointment.owner_id = @owner.id
       @owner.appointment_id = @appointment.id
-          
+      @appointment.save
       @owner.save
       time_start = @appointment.time_start_convert
       time_end = @appointment.time_end_convert
-
       # Does this need to be destroyed after I use it?
-      session[:available] = Sitter.any_available(time_start, time_end)
+      @available = Sitter.any_available(time_start, time_end)
 
       @emails = []
-      (session[:available]).each do |key, value|
-        @emails << session[:available][key]["email"]
+      @available.each do |key, value|
+        @emails << @available[key]["email"]
       end
-      AppointmentNotify.new_appointment(@emails, @appointment).deliver
+      # AppointmentNotify.new_appointment(@emails, @appointment).deliver
       respond_to do |format|
         format.html { redirect_to home_path, notice: 'Appointment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @appointment }
+        format.js {render :layout => false}
       end
     else
       get_times
@@ -111,6 +112,22 @@ class AppointmentsController < ApplicationController
       @sitter_id = @sitter.id
     else
       session[:return_to] ||= request.original_url
+    end
+  end
+
+  def get_pictures
+    @appointment = Appointment.new
+    @appointment.time_start = params["time_start"]
+    @appointment.time_end = params["time_end"]
+    @appointment.date = params["date"]
+    @appointment.time_start_convert
+    @appointment.time_end_convert
+    time_start = @appointment.time_start_convert
+    time_end = @appointment.time_end_convert
+      # Does this need to be destroyed after I use it?
+    @available = Sitter.any_available(time_start, time_end)
+    respond_to do |format|
+      format.js {render :layout => false}
     end
   end  
 

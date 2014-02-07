@@ -1,0 +1,6 @@
+(function () {
+  var sitterHTML = "<%= j render(partial: 'sitter')%>";
+  $('.sitter-list').remove();
+  $('.sitters-show').append(sitterHTML);
+  $('.sitter-list').fadeIn('slow');
+})();
