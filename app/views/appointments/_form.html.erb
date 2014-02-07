@@ -1,8 +1,6 @@
-
-<%= form_for @appointment, :validate => true do |f| %>
+<%= form_for(@appointment, :validate => true, :remote => true) do |f| %>
   <% if @appointment.errors.any? || @owner.errors.any? %>
     <div id="error_explanation">
-      
       <% @appointment.errors.full_messages.each do |msg| %>
         <h5><%= msg %></h5>
       <% end %>

@@ -1,8 +1,21 @@
+$(document).on("ajax:success", function(e, data) {
+  console.log("Ajax Response data:", data);
+});
 
+$('#appointment_time_end').on('change', function() {
+  var time_start = $('#appointment_time_start').val();
+  var time_end = $('#appointment_time_end').val();
+  var date = $('#appointment_date').val();
+  $.ajax({
+    url: "/appointments/get_pictures",
+    type: 'post',
+    data: {time_start: time_start, time_end: time_end, date: date}
+  });
+});
 var zipCodeValid = function(zip) {
   return zip.length == 5 && parseInt(zip).toString().length == 5
 }
-
+console.log("appointment.js")
 $('#appointment_zip_code').on('change', function() {
     var zip_code = $('#appointment_zip_code').val();
     console.log(zip_code);

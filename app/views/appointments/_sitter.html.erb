@@ -1,0 +1,7 @@
+<h2>Available Sitters:</h2>
+<div class="sitter-list">
+<% @available.each do |key, value| %>
+<h5><%= key %></h5>
+<p><%= image_tag(value["picture"]) %></p>
+<% end %>
+</div>
